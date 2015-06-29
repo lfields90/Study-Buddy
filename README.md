@@ -1,3 +1,5 @@
+![Build Status](https://codeship.com/projects/88416/status?branch=master)![Code Climate](https://codeclimate.com/github/lfields90/study-buddy.png) ![Coverage Status](https://coveralls.io/repos/lfields90/study-buddy/badge.png)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
