@@ -1,0 +1,15 @@
+<center><h2>Spots</h2>
+<table>
+  <thead>
+  </thead>
+  <tbody>
+    <% @spots.each do |spot| %>
+      <tr>
+        <td> <%= link_to spot.name, spots_path(spot) %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table><br>
+
+<%= link_to "Add a spot", new_spot_path %>
+</center>

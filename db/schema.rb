@@ -19,14 +19,14 @@ ActiveRecord::Schema.define(version: 20150629194554) do
   create_table "spots", force: :cascade do |t|
     t.string   "name",        null: false
     t.string   "description", null: false
-    t.string   "type",        null: false
+    t.string   "category",    null: false
     t.string   "address",     null: false
     t.string   "city",        null: false
-    t.integer  "state",       null: false
-    t.integer  "zip_code",    null: false
+    t.string   "state",       null: false
+    t.string   "zip_code",    null: false
     t.string   "website_url"
     t.string   "photo_url"
-    t.integer  "phone",       null: false
+    t.string   "phone",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
