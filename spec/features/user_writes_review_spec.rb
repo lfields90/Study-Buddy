@@ -10,7 +10,16 @@ feature "User writes a review for a Spot" do
   # - User can add a review
 
   scenario 'I want to review a study spot' do
-    visit '/spots/1/reviews/new'
+    spot1 = Spot.find_or_create_by(
+      state: "MA", city: 'Boston',
+      zip_code: "12345", address: "33 Harrison Ave.",
+      name: "Launch Academy",
+      description: "It's a big room.",
+      phone: "1434321434",
+      website_url: "http://launchacademy.com",
+      category: "room"
+    )
+    visit new_spot_review_path(spot1)
     choose '4'
     fill_in "Body", with: "I love this place!"
     click_button('Add Review')
@@ -19,14 +28,32 @@ feature "User writes a review for a Spot" do
   end
 
   scenario 'I want to review a study spot' do
-    visit '/spots/1/reviews/new'
+    spot1 = Spot.find_or_create_by(
+      state: "MA", city: 'Boston',
+      zip_code: "12345", address: "33 Harrison Ave.",
+      name: "Launch Academy",
+      description: "It's a big room.",
+      phone: "1434321434",
+      website_url: "http://launchacademy.com",
+      category: "room"
+    )
+    visit new_spot_review_path(spot1)
     fill_in 'Body', with: 'I love this place!'
     click_button('Add Review')
     expect(page).to have_content("Rating can't be blank")
   end
 
   scenario 'I want to review a study spot' do
-    visit '/spots/1/reviews/new'
+    spot1 = Spot.find_or_create_by(
+      state: "MA", city: 'Boston',
+      zip_code: "12345", address: "33 Harrison Ave.",
+      name: "Launch Academy",
+      description: "It's a big room.",
+      phone: "1434321434",
+      website_url: "http://launchacademy.com",
+      category: "room"
+    )
+    visit new_spot_review_path(spot1)
     choose '2'
     fill_in 'Body', with: ''
     click_button('Add Review')
