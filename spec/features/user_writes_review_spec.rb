@@ -18,14 +18,12 @@ feature "User writes a review for a Spot" do
     expect(page).to have_content("Review sucessfully added")
   end
 
-
   scenario 'I want to review a study spot' do
     visit '/spots/1/reviews/new'
     fill_in 'Body', with: 'I love this place!'
     click_button('Add Review')
     expect(page).to have_content("Rating can't be blank")
   end
-
 
   scenario 'I want to review a study spot' do
     visit '/spots/1/reviews/new'

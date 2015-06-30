@@ -2,11 +2,10 @@ require 'rails_helper'
 
 feature "User edits a spot" do
 
-# As a user I want to be able to edit a spot I created
-# so that the information is up-to-date.
-# Acceptance criteria:
-# - User can edit the spot they created.
-
+  # As a user I want to be able to edit a spot I created
+  # so that the information is up-to-date.
+  # Acceptance criteria:
+  # - User can edit the spot they created.
 
   xscenario 'I want to edit a study spot' do
     visit '/spots/1/edit'

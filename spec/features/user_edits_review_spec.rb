@@ -8,7 +8,6 @@ feature "User edits a review for a Spot" do
   # Acceptance criteria:
   # - User can edit the review they created.
 
-
   xscenario 'I want to edit a review for a study spot' do
     visit '/spots/1/reviews/edit'
     choose '1'
@@ -19,7 +18,6 @@ feature "User edits a review for a Spot" do
     expect(page).to have_content("Review sucessfully updated")
   end
 
-
   xscenario 'I want to review a study spot' do
     visit '/spots/1/reviews/edit'
     fill_in 'body', with: 'I love this place!'
@@ -27,7 +25,6 @@ feature "User edits a review for a Spot" do
 
     expect(page).to have_content("You must include a rating")
   end
-
 
   xscenario 'I want to review a study spot' do
     visit '/spots/1/reviews/edit'
