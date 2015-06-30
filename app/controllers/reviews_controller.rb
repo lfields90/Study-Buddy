@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   def new
     @spot = Spot.find params[:spot_id]
     @review = Review.new
-    @ratings = [1,2,3,4,5]
+    @ratings = [1, 2, 3, 4, 5]
   end
 
   def create

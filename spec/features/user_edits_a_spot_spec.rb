@@ -5,8 +5,7 @@ feature "User edits a spot" do
 # As a user I want to be able to edit a spot I created
 # so that the information is up-to-date.
 # Acceptance criteria:
-# - User can edit the spot they created.
-
+# User can edit the spot they created.
 
   scenario 'I want to edit a study spot' do
     visit '/spots/2/edit'
