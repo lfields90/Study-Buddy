@@ -1,22 +1,14 @@
 <h1>Rate <%= @spot.name %>!</h1>
-
-  <%= form_for [@restaurant, @review] do |f| %>
+<%= form_for [@spot, @review] do |f| %>
 
   <% @ratings.each do |rating| %>
-
-  <%= f.radio_button(:rating, rating) %>
-  <%= f.label(:rating, "#{rating}") %>
-
+    <%= f.radio_button(:rating, rating) %>
+    <%= f.label(:rating, rating, value: rating) %>
+    <%#= f.label(:rating, "#{rating}") %>
   <% end %>
 
-<p>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-</p>
-<%= f.hidden_field(:restaurant_id, value: params[:restaurant_id]) %>
-<p>
-    <%= f.submit "Add Review" %>
-</p>
-  <%- end -%>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
 
-<%= link_to "Back", restaurant_path(params[:restaurant_id]), id: 'to_restaurant_review' %>
+  <%= f.submit "Add Review" %>
+<% end %>

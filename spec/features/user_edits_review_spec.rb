@@ -11,7 +11,7 @@ feature "User edits a review for a Spot" do
 
   scenario 'I want to edit a review for a study spot' do
     visit '/spots/1/reviews/edit'
-    fill_in 'rating', with: '1'
+    choose '1'
     fill_in 'body', with: 'I hate this place!'
     click_button('submit')
 
@@ -22,7 +22,6 @@ feature "User edits a review for a Spot" do
 
     scenario 'I want to review a study spot' do
       visit '/spots/1/reviews/edit'
-      fill_in 'rating', with: ''
       fill_in 'body', with: 'I love this place!'
       click_button('submit')
 
@@ -32,7 +31,7 @@ feature "User edits a review for a Spot" do
 
       scenario 'I want to review a study spot' do
         visit '/spots/1/reviews/edit'
-        fill_in 'rating', with: '2'
+        choose '2'
         fill_in 'body', with: ''
         click_button('submit')
 
@@ -41,7 +40,7 @@ feature "User edits a review for a Spot" do
 
     scenario "I can't edit someone else's review" do
       visit '/spots/3/reviews/edit'
-      fill_in 'rating', with: '2'
+      choose '2'
       fill_in 'body', with: ''
       click_button('submit')
 
