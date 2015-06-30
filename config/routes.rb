@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'spots#index'
+  root "spots#index"
   devise_for :users
   resources :spots, only: [:index, :new, :create]
   # The priority is based upon order of creation: first created -> highest priority.

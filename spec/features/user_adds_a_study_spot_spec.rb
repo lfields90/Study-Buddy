@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 feature "adding spot" do
   scenario "users add a new spot" do
@@ -14,7 +14,8 @@ feature "adding spot" do
     fill_in "Zip code", with: "03032"
     fill_in "Website url", with: "http://pinballwizard.com"
     fill_in "Photo url", with:
-      "http://www.bootcamps.in/wp-content/uploads/2013/01/Launch_Academy_Logo.jpg"
+      "http://www.bootcamps.in/wp-content/uploads/2013/01/
+      Launch_Academy_Logo.jpg"
     fill_in "Phone", with: "6173659985"
 
     click_button "Add new spot"

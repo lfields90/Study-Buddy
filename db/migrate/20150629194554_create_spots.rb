@@ -10,7 +10,7 @@ class CreateSpots < ActiveRecord::Migration
       t.string :zip_code, null: false
       t.string :website_url
       t.string :photo_url
-      t.string :phone, null: false
+      t.string :phone
 
       t.timestamps
     end

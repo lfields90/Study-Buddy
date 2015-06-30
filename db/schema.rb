@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150629194554) do
     t.string   "zip_code",    null: false
     t.string   "website_url"
     t.string   "photo_url"
-    t.string   "phone",       null: false
+    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
