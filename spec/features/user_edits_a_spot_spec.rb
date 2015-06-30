@@ -9,18 +9,18 @@ feature "User edits a spot" do
 
 
   scenario 'I want to edit a study spot' do
-    visit '/spots/1/edit'
+    visit '/spots/2/edit'
 
-    fill_in 'state', with: 'MA'
-    fill_in 'city', with: 'Boston'
-    fill_in 'zip', with: 01456
-    fill_in 'address', with: '33 Harrison Ave.'
-    fill_in 'description', with: 'It is a room.'
-    fill_in 'name', with: 'Launch Academy'
-    fill_in 'type', with: 'room'
-    fill_in 'website', with: 'http://launchacademy.com'
-    fill_in 'phone', with: 1434321434
-    click_button('submit')
+    fill_in 'State', with: "MA"
+    fill_in 'City', with: "Boston"
+    fill_in 'Zip code', with: "01456"
+    fill_in 'Address', with: "33 Harrison Ave."
+    fill_in 'Description', with: "It is a room."
+    fill_in 'Name', with: "Launch Academy"
+    fill_in 'Category', with: "room"
+    fill_in 'Website url', with: "http://launchacademy.com"
+    fill_in 'Phone', with: "1434321434"
+    click_button("Edit spot")
 
     expect(page).to have_content("33 Harrison Ave")
     expect(page).to have_content("Launch Academy")

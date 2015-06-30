@@ -4,8 +4,6 @@
   </thead>
   <tbody>
     <% @spots.each do |spot| %>
-
-  <%  binding.pry %>
       <tr>
         <td> <%= link_to spot.name, spot_path(spot.id) %> </td>
       </tr>

@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @spot = Spot.find params[:spot_id]
     @review = Review.new(review_params)
     if @review.save
       redirect_to spot_path(@spot)
@@ -14,7 +15,7 @@ class ReviewsController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def review_params
     params.require(:review).permit(:body, :rating, :spot_id, :user_id)

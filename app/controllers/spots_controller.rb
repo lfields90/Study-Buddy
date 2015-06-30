@@ -23,6 +23,16 @@ class SpotsController < ApplicationController
     @reviews = Review.where(spot_id: params[:id])
   end
 
+  def edit
+    @spot = Spot.find(params[:id])
+  end
+
+  def update
+    @spot = Spot.find(params[:id])
+    @spot.update!(spot_params)
+    redirect_to spot_path(@spot)
+  end
+
   private
 
   def spot_params
