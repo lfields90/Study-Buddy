@@ -8,7 +8,13 @@ feature "User edits a spot" do
 # User can edit the spot they created.
 
   scenario 'I want to edit a study spot' do
-    visit '/spots/2/edit'
+    spot1 = Spot.find_or_create_by(
+      state: "MA", city: 'Boston', zip_code: "12345",
+      address: "33 Harrison Ave.", name: "Launch Academy",
+      description: "It's a big room.", phone: "1434321434",
+      website_url: "http://launchacademy.com", category: "room"
+      )
+    visit edit_spot_path(spot1)
 
     fill_in 'State', with: "MA"
     fill_in 'City', with: "Boston"
