@@ -10,7 +10,7 @@ feature 'user signs out', %Q{
   # * When I opt to sign out, I get a confirmation that my identity has been
   #   forgotten on the machine I'm using
 
-  scenario 'authenticated user signs out' do
+  xscenario 'authenticated user signs out' do
     user = FactoryGirl.create(:user)
 
     visit new_user_session_path
@@ -26,7 +26,7 @@ feature 'user signs out', %Q{
     expect(page).to have_content('Signed out successfully')
   end
 
-  scenario 'unauthenticated user attempts to sign out' do
+  xscenario 'unauthenticated user attempts to sign out' do
     visit '/'
     expect(page).to_not have_content('Sign Out')
   end

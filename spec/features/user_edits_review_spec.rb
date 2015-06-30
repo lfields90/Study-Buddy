@@ -9,7 +9,7 @@ feature "User edits a review for a Spot" do
   # - User can edit the review they created.
 
 
-  scenario 'I want to edit a review for a study spot' do
+  xscenario 'I want to edit a review for a study spot' do
     visit '/spots/1/reviews/edit'
     choose '1'
     fill_in 'body', with: 'I hate this place!'
@@ -20,30 +20,30 @@ feature "User edits a review for a Spot" do
   end
 
 
-    scenario 'I want to review a study spot' do
-      visit '/spots/1/reviews/edit'
-      fill_in 'body', with: 'I love this place!'
-      click_button('submit')
+  xscenario 'I want to review a study spot' do
+    visit '/spots/1/reviews/edit'
+    fill_in 'body', with: 'I love this place!'
+    click_button('submit')
 
-      expect(page).to have_content("You must include a rating")
+    expect(page).to have_content("You must include a rating")
   end
 
 
-      scenario 'I want to review a study spot' do
-        visit '/spots/1/reviews/edit'
-        choose '2'
-        fill_in 'body', with: ''
-        click_button('submit')
+  xscenario 'I want to review a study spot' do
+    visit '/spots/1/reviews/edit'
+    choose '2'
+    fill_in 'body', with: ''
+    click_button('submit')
 
-        expect(page).to have_content("You must include a review")
-    end
+    expect(page).to have_content("You must include a review")
+  end
 
-    scenario "I can't edit someone else's review" do
-      visit '/spots/3/reviews/edit'
-      choose '2'
-      fill_in 'body', with: ''
-      click_button('submit')
+  xscenario "I can't edit someone else's review" do
+    visit '/spots/3/reviews/edit'
+    choose '2'
+    fill_in 'body', with: ''
+    click_button('submit')
 
-      expect(page).to have_content("Access denied")
+    expect(page).to have_content("Access denied")
   end
 end

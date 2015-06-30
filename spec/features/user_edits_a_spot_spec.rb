@@ -8,7 +8,7 @@ feature "User edits a spot" do
 # - User can edit the spot they created.
 
 
-  scenario 'I want to edit a study spot' do
+  xscenario 'I want to edit a study spot' do
     visit '/spots/1/edit'
 
     fill_in 'state', with: 'MA'

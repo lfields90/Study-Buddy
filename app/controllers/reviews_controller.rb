@@ -14,7 +14,6 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review sucessfully added"
       redirect_to spot_path(@spot)
     else
-      flash[:notice] = "Review needs to be complete"
       render :new
     end
   end
