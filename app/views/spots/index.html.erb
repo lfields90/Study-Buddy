@@ -1,3 +1,5 @@
+
+
 <center><h2>Spots</h2>
 <table>
   <thead>
@@ -5,9 +7,9 @@
   <tbody>
     <% @spots.each do |spot| %>
 
-  <%  binding.pry %>
+
       <tr>
-        <td> <%= link_to spot.name, spot_path(spot.id) %> </td>
+        <td><%= link_to spot.name, spot_path(spot.id) %></td>
       </tr>
     <% end %>
   </tbody>

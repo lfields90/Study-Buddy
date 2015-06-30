@@ -1,11 +1,33 @@
-<h1>Rate <%= @spot.name %>!</h1>
+<% if @review.errors.present? %>
+<div data-alert class="large-12 alert-box alert" data-alert>
+  <ul>
+    <% @review.errors.full_messages.each do |error| %>
+    <li> <%= error %> </li>
+    <%- end -%>
+  </ul>
+<a href="#" class="close">&times;</a>
+</div>
+<%- end -%>
+
+<h1>Rate <%= @spot.name %></h1>
 <%= form_for [@spot, @review] do |f| %>
 
-  <% @ratings.each do |rating| %>
-    <%= f.radio_button(:rating, rating) %>
-    <%= f.label(:rating, rating, value: rating) %>
-    <%#= f.label(:rating, "#{rating}") %>
-  <% end %>
+
+    <%= f.radio_button(:rating, 1) %>
+    <%= f.label(:rating, 1, value: 1) %>
+
+    <%= f.radio_button(:rating, 2) %>
+    <%= f.label(:rating, 2, value: 2) %>
+
+    <%= f.radio_button(:rating, 3) %>
+    <%= f.label(:rating, 3, value: 3) %>
+
+    <%= f.radio_button(:rating, 4) %>
+    <%= f.label(:rating, 4, value: 4) %>
+
+    <%= f.radio_button(:rating, 5) %>
+    <%= f.label(:rating, 5, value: 5) %>
+
 
   <%= f.label :body %>
   <%= f.text_area :body %>

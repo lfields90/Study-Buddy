@@ -10,7 +10,7 @@ feature "User writes a review for a Spot" do
 # - User can add a review
 
   scenario 'I want to review a study spot' do
-    visit '/spots/2/reviews/new'
+    visit '/spots/1/reviews/new'
     choose '4'
     fill_in "Body", with: "I love this place!"
     click_button('Add Review')
@@ -21,21 +21,21 @@ feature "User writes a review for a Spot" do
 
 
     scenario 'I want to review a study spot' do
-      visit '/spots/2/reviews/new'
+      visit '/spots/1/reviews/new'
 
       fill_in 'Body', with: 'I love this place!'
       click_button('Add Review')
 
-      expect(page).to have_content("You must include a rating")
+      expect(page).to have_content("Review needs to be complete")
   end
 
 
       scenario 'I want to review a study spot' do
-        visit '/spots/2/reviews/new'
+        visit '/spots/1/reviews/new'
         choose '2'
         fill_in 'Body', with: ''
         click_button('Add Review')
 
-        expect(page).to have_content("You must include a review")
+        expect(page).to have_content("Review needs to be complete")
     end
 end

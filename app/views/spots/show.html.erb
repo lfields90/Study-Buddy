@@ -1,3 +1,4 @@
+
 <div class="large-12">
   <h2> <%= @spot.name %> </h2>
   <ul>
@@ -12,5 +13,17 @@
     <li>Phone: <%= @spot.phone %></li>
   </ul>
 
+<h2>Reviews!</h2>
+
+<% @reviews.each do |review| %>
+
+  <ul>
+    <li>Rating: <%= review.rating %></li>
+    <li>Review: <%= review.body %></li>
+  </ul>
+<% end %>
+
+
 <%= link_to "Home", spots_path %>
+<%= link_to "Add a Review", new_spot_review_path(@spot) %>
 </center>
