@@ -1,15 +1,8 @@
-<center><h2>Spots</h2>
-<table>
-  <thead>
-  </thead>
-  <tbody>
+<h2>Spots</h2>
+  <ul>
     <% @spots.each do |spot| %>
-      <tr>
-        <td> <%= link_to spot.name, spots_path(spot) %> </td>
-      </tr>
+        <li><%= link_to spot.name, spot_path(spot) %></li>
     <% end %>
-  </tbody>
-</table><br>
+  </ul>
 
 <%= link_to "Add a spot", new_spot_path %>
-</center>
