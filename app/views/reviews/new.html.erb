@@ -1,3 +1,16 @@
+<div class="row">
+  <%- if @review.errors.present? -%>
+    <div class="large-12 alert-box alert" data-alert>
+      <ul>
+        <%- @review.errors.full_messages.each do |error| -%>
+          <li><%= error %></li>
+        <%- end -%>
+      </ul>
+    </div>
+  <%- end -%>
+</div>
+
+<div class="row">
 <h1>Rate <%= @spot.name %></h1>
 <%= form_for [@spot, @review] do |f| %>
 
@@ -21,3 +34,4 @@
 
   <%= f.submit "Add Review" %>
 <% end %>
+</div>

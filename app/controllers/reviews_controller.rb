@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review sucessfully added"
       redirect_to spot_path(@spot)
     else
-      flash[:error] = "Missing information"
+
       render :new
     end
   end

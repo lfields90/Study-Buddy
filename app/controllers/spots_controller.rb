@@ -21,6 +21,7 @@ class SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
     @reviews = @spot.reviews
+  end
 
   def edit
     @spot = Spot.find(params[:id])
