@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root "spots#index"
   devise_for :users
-  resources :spots, only: [:index, :new, :create]
+
+  resources :spots do
+    resources :reviews, only: [:new, :create]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
