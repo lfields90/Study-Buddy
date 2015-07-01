@@ -10,7 +10,7 @@ feature "User writes a review for a Spot" do
   # - User can add a review
 
   scenario 'I want to review a study spot' do
-    spot1 = Spot.create(
+    spot1 = Spot.create!(
       state: "MA", city: 'Boston',
       zip_code: "12345", address: "33 Harrison Ave.",
       name: "Launch Academy",
@@ -35,7 +35,7 @@ feature "User writes a review for a Spot" do
   end
 
   scenario 'I want to review a study spot' do
-    spot1 = Spot.create(
+    spot1 = Spot.create!(
       state: "MA", city: 'Boston',
       zip_code: "12345", address: "33 Harrison Ave.",
       name: "Launch Academy",
@@ -51,7 +51,7 @@ feature "User writes a review for a Spot" do
   end
 
   scenario 'I want to review a study spot' do
-    spot1 = Spot.create(
+    spot1 = Spot.create!(
       state: "MA", city: 'Boston',
       zip_code: "12345", address: "33 Harrison Ave.",
       name: "Launch Academy",

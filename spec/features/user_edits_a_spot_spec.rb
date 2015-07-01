@@ -8,7 +8,7 @@ feature "User edits a spot" do
 # User can edit the spot they created.
 
   scenario 'I want to edit a study spot' do
-    spot1 = Spot.find_or_create_by(
+    spot1 = Spot.create!(
       state: "MA", city: 'Boston', zip_code: "12345",
       address: "33 Harrison Ave.", name: "Launch Academy",
       description: "It's a big room.", phone: "1434321434",

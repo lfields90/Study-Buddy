@@ -5,6 +5,6 @@ class Review < ActiveRecord::Base
   validates :rating, presence: true
   validates :rating, numericality: { greater_than: 0, less_than: 6 }
   validates :body, presence: true
-  validates :spot_id, presence: true
-  validates :user_id, presence: true
+  validates :spot, presence: true
+  validates :user, presence: true
 end

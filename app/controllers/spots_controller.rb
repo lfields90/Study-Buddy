@@ -29,7 +29,7 @@ class SpotsController < ApplicationController
 
   def update
     @spot = Spot.find(params[:id])
-    @spot.update!(spot_params)
+    @spot.update(spot_params)
     redirect_to spot_path(@spot)
   end
 
