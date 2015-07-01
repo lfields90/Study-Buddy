@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "adding spot" do
   scenario "users add a new spot" do
-    visit "/spots/new"
+    visit new_spot_path
 
     fill_in "Name", with: "Launch Academy"
     fill_in "Description", with: "This is a super chill, totally rad-tacular

@@ -1,0 +1,25 @@
+<div class="row">
+<h1>Rate <%= @spot.name %></h1>
+<%= form_for [@spot, @review] do |f| %>
+
+  <%= f.radio_button(:rating, 1) %>
+  <%= f.label(:rating, 1, value: 1) %>
+
+  <%= f.radio_button(:rating, 2) %>
+  <%= f.label(:rating, 2, value: 2) %>
+
+  <%= f.radio_button(:rating, 3) %>
+  <%= f.label(:rating, 3, value: 3) %>
+
+  <%= f.radio_button(:rating, 4) %>
+  <%= f.label(:rating, 4, value: 4) %>
+
+  <%= f.radio_button(:rating, 5) %>
+  <%= f.label(:rating, 5, value: 5) %>
+
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+
+  <%= f.submit "Add Review" %>
+<% end %>
+</div>
