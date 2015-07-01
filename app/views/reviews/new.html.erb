@@ -1,14 +1,3 @@
-<% if @review.errors.present? %>
-<div data-alert class="large-12 alert-box alert" data-alert>
-  <ul>
-    <% @review.errors.full_messages.each do |error| %>
-    <li> <%= error %> </li>
-    <%- end -%>
-  </ul>
-<a href="#" class="close">&times;</a>
-</div>
-<%- end -%>
-
 <h1>Rate <%= @spot.name %></h1>
 <%= form_for [@spot, @review] do |f| %>
 

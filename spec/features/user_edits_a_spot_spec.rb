@@ -7,7 +7,7 @@ feature "User edits a spot" do
   # Acceptance criteria:
   # - User can edit the spot they created.
 
-  xscenario 'I want to edit a study spot' do
+  pending scenario 'I want to edit a study spot' do
     visit '/spots/1/edit'
 
     fill_in 'state', with: 'MA'

@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Spot.create(
-  state: "MA", city: 'Boston', 
+  state: "MA", city: 'Boston',
   zip_code: "12345", address: "33 Harrison Ave.",
   name: "Launch Academy",
   description: "It's a big room.",

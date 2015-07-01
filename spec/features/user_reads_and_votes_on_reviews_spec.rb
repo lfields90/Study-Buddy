@@ -8,14 +8,14 @@ feature "User reads and votes on reviews" do
   # - User can upvote or downvote another user's review.
   # - User can see all reviews for a spot.
 
-  xscenario 'I want to see reviews for a spot' do
+  pending scenario 'I want to see reviews for a spot' do
     visit '/spots/1'
 
     expect(page).to have_content("I hate this place!")
     expect(page).to have_content("This place rocks!")
   end
 
-  xscenario 'I want to endorse another review' do
+  pending scenario 'I want to endorse another review' do
     visit '/spots/3'
     click_button('upvote')
 

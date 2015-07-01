@@ -5,7 +5,7 @@ feature 'user signs in', %Q{
   I want to sign in
   So that I can regain access to my account
 } do
-  xscenario 'specify valid credentials' do
+  scenario 'specify valid credentials' do
     user = FactoryGirl.create(:user)
 
     visit new_user_session_path
@@ -19,7 +19,7 @@ feature 'user signs in', %Q{
     expect(page).to have_content('Sign Out')
   end
 
-  xscenario 'specify invalid credentials' do
+  scenario 'specify invalid credentials' do
     visit new_user_session_path
 
     click_button 'Log in'

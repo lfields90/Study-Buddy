@@ -6,14 +6,15 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    session[:user_id] ||= "1"
     @spot = Spot.find(params[:spot_id])
     @review = Review.new(review_params)
+    @review.user = current_user
     @review.spot_id = @spot.id
     if @review.save
       flash[:notice] = "Review sucessfully added"
       redirect_to spot_path(@spot)
     else
+      flash[:error] = "Missing information"
       render :new
     end
   end
