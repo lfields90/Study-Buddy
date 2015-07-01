@@ -1,0 +1,33 @@
+<%= form_for @spot do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+
+  <%= f.label :state %>
+  <%= f.text_field :state %>
+
+  <%= f.label :zip_code %>
+  <%= f.number_field :zip_code %>
+
+  <%= f.label :website_url %>
+  <%= f.url_field :website_url %>
+
+  <%= f.label :photo_url %>
+  <%= f.url_field :photo_url %>
+
+  <%= f.label :phone %>
+  <%= f.telephone_field :phone %>
+
+  <%= f.submit "Edit spot" %>
+<%- end -%>

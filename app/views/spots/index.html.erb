@@ -1,12 +1,4 @@
-<div class="row">
-  <% if flash[:notice] %>
-    <div class="large-12 alert-box success" data-alert>
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-</div>
-
-<center><h2>Spots</h2>
+<h2>Spots</h2>
   <ul>
     <% @spots.each do |spot| %>
         <li><%= link_to spot.name, spot_path(spot) %></li>
@@ -14,4 +6,3 @@
   </ul>
 
 <%= link_to "Add a spot", new_spot_path %>
-</center>
