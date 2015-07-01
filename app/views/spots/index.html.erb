@@ -5,7 +5,7 @@
   <tbody>
     <% @spots.each do |spot| %>
       <tr>
-        <td> <%= link_to spot.name, spot_path(spot.id) %> </td>
+        <td> <%= link_to spot.name, spot %> </td>
       </tr>
     <% end %>
   </tbody>
