@@ -17,7 +17,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
+  gem 'faker'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'pry-rails'
