@@ -8,7 +8,7 @@ feature "User views study spots" do
   # - User can view a list of spots and see details for each spot.
 
   scenario 'I want to view study spots' do
-    Spot.find_or_create_by(
+    Spot.create(
       state: "MA", city: 'Boston',
       zip_code: "12345", address: "33 Harrison Ave.",
       name: "Launch Academy",

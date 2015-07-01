@@ -8,3 +8,4 @@ Spot.create(
   category: "room"
 )
 Review.create(rating: 3, body: 'The worst', spot_id: 1)
+User.create(email: "test@test.com", encrypted_password: "testtest")

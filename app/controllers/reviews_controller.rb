@@ -11,10 +11,10 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.spot_id = @spot.id
     if @review.save
-      flash[:notice] = "Review sucessfully added"
+      flash[:notice] = "Review successfully added"
       redirect_to spot_path(@spot)
     else
-
+      flash[:alert] = @review.errors.full_messages.join(".  ")
       render :new
     end
   end

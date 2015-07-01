@@ -10,10 +10,10 @@ class SpotsController < ApplicationController
   def create
     @spot = Spot.new(spot_params)
     if @spot.save
-      flash[:notice] = "Spot added."
+      flash[:success] = "Spot added."
       redirect_to spots_path
     else
-      flash[:notice] = "Spot was not saved."
+      flash[:alert] = @spot.errors.full_messages.join(".  ")
       render :new
     end
   end

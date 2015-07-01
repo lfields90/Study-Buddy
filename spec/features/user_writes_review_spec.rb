@@ -10,7 +10,7 @@ feature "User writes a review for a Spot" do
   # - User can add a review
 
   scenario 'I want to review a study spot' do
-    spot1 = Spot.find_or_create_by(
+    spot1 = Spot.create(
       state: "MA", city: 'Boston',
       zip_code: "12345", address: "33 Harrison Ave.",
       name: "Launch Academy",
@@ -19,16 +19,23 @@ feature "User writes a review for a Spot" do
       website_url: "http://launchacademy.com",
       category: "room"
     )
+
+    user = FactoryGirl.create(:user)
+    visit new_user_session_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
+
     visit new_spot_review_path(spot1)
     choose '4'
     fill_in "Body", with: "I love this place!"
     click_button('Add Review')
     expect(page).to have_content("I love this place!")
-    expect(page).to have_content("Review sucessfully added")
+    expect(page).to have_content("Review successfully added")
   end
 
   scenario 'I want to review a study spot' do
-    spot1 = Spot.find_or_create_by(
+    spot1 = Spot.create(
       state: "MA", city: 'Boston',
       zip_code: "12345", address: "33 Harrison Ave.",
       name: "Launch Academy",
@@ -44,7 +51,7 @@ feature "User writes a review for a Spot" do
   end
 
   scenario 'I want to review a study spot' do
-    spot1 = Spot.find_or_create_by(
+    spot1 = Spot.create(
       state: "MA", city: 'Boston',
       zip_code: "12345", address: "33 Harrison Ave.",
       name: "Launch Academy",
