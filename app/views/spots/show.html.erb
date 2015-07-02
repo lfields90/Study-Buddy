@@ -17,11 +17,10 @@
 
     <% @reviews.each do |review| %>
       <ul>
-        binding.pry
         <li>Rating: <%= review.rating %></li>
         <li>Review: <%= review.body %></li>
+        <li><%= link_to "Edit a review", edit_spot_review_path(@spot, review) %></li>
       </ul>
-      <%= link_to "Edit a review", edit_spot_review_path(@spot.id) %><br>
     <% end %>
 
     <%= link_to "Home", spots_path %><br>

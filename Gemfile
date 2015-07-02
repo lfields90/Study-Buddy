@@ -13,7 +13,7 @@ gem 'foundation-rails'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
-  gem 'spring', '~> 1.3.3'
+ß  gem 'spring', '~> 1.3.3'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'

@@ -19,6 +19,19 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @spot = Spot.find params[:spot_id]
+    @review = Review.find(params[:id])
+    @ratings = [1, 2, 3, 4, 5]
+  end
+
+  def update
+    @spot = Spot.find params[:spot_id]
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+    redirect_to spot_path(@spot)
+  end
+
   private
 
   def review_params
