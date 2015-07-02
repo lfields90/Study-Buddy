@@ -14,4 +14,7 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  has_many :reviews
+  has_many :spots
 end
