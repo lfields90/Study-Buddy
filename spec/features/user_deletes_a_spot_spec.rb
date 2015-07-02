@@ -11,7 +11,6 @@ feature "User deletes a spot" do
     spot = FactoryGirl.create(:spot)
     visit spot_path(spot)
 
-    expect(page).to have_content("33 Harrison Ave")
-    expect(page).to have_content("Launch Academy")
+    expect(page).to have_content("Spot deleted")
   end
 end

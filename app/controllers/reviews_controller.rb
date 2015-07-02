@@ -32,6 +32,9 @@ class ReviewsController < ApplicationController
     redirect_to spot_path(@spot)
   end
 
+  def destroy
+  end
+
   private
 
   def review_params
