@@ -20,6 +20,7 @@
         <li>Rating: <%= review.rating %></li>
         <li>Review: <%= review.body %></li>
         <li><%= link_to "Edit a review", edit_spot_review_path(@spot, review) %></li>
+        <li><%= link_to "Delete review", spot_review_path(@spot, review), method: :delete %></li>
       </ul>
     <% end %>
 

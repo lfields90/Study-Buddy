@@ -33,11 +33,11 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @spot = Spot.find(params[:id])
+    @spot = Spot.find(params[:spot_id])
     @review = Review.find(params[:id])
     @review.destroy
-    flash[:notice] = "Spot destroyed"
-    redirect_to spot_path(@review)
+    flash[:notice] = "Review destroyed"
+    redirect_to spots_path(@spot)
   end
 
   private
