@@ -1,4 +1,4 @@
-![Build Status](https://codeship.com/projects/<YOUR_PROJECT_UUID>/status?branch=master)![Code Climate](https://codeclimate.com/github/<YOUR_GITHUB_USERNAME>/<YOUR_REPO_NAME>.png) ![Coverage Status](https://coveralls.io/repos/<YOUR_GITHUB_USERNAME>/<YOUR_REPO_NAME>/badge.png)
+![Build Status](https://codeship.com/projects/5162aea0-00b1-0133-408b-22d901b45296/status?branch=master)![Code Climate](https://codeclimate.com/github/lfields90/study-buddy.png) ![Coverage Status](https://coveralls.io/repos/lfields90/study-buddy/badge.png)
 
 == README
 
