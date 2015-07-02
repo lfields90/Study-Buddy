@@ -21,11 +21,11 @@ FactoryGirl.define do
   end
 end
 
-  FactoryGirl.define do
-    factory :review do |f|
-      f.body { Faker::Lorem.name }
-      f.rating { rand(1..5) }
-      f.spot_id { 1 }
-      f.user_id { 1 }
-    end
+FactoryGirl.define do
+  factory :review do |f|
+    f.body { Faker::Lorem.name }
+    f.rating { rand(1..5) }
+    f.spot_id { 1 }
+    f.user_id { 1 }
+  end
 end
