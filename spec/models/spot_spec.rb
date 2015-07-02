@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Spot do
   it "has a valid factory" do
-    FactoryGirl.create(:spot).should be_valid
+    FactoryGirl.build(:spot).should be_valid
   end
   it "is invalid without name" do
     FactoryGirl.build(:spot, name: nil).should_not be_valid

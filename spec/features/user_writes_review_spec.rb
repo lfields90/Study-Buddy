@@ -10,15 +10,7 @@ feature "User writes a review for a Spot" do
   # - User can add a review
 
   scenario 'I want to review a study spot' do
-    spot1 = Spot.create!(
-      state: "MA", city: 'Boston',
-      zip_code: "12345", address: "33 Harrison Ave.",
-      name: "Launch Academy",
-      description: "It's a big room.",
-      phone: "1434321434",
-      website_url: "http://launchacademy.com",
-      category: "room"
-    )
+    spot = FactoryGirl.create(:spot)
 
     user = FactoryGirl.create(:user)
     visit new_user_session_path
@@ -26,7 +18,7 @@ feature "User writes a review for a Spot" do
     fill_in "Password", with: user.password
     click_button "Log in"
 
-    visit new_spot_review_path(spot1)
+    visit new_spot_review_path(spot)
     choose '4'
     fill_in "Body", with: "I love this place!"
     click_button('Add Review')
@@ -35,32 +27,18 @@ feature "User writes a review for a Spot" do
   end
 
   scenario 'I want to review a study spot' do
-    spot1 = Spot.create!(
-      state: "MA", city: 'Boston',
-      zip_code: "12345", address: "33 Harrison Ave.",
-      name: "Launch Academy",
-      description: "It's a big room.",
-      phone: "1434321434",
-      website_url: "http://launchacademy.com",
-      category: "room"
-    )
-    visit new_spot_review_path(spot1)
+    spot = FactoryGirl.create(:spot)
+
+    visit new_spot_review_path(spot)
     fill_in 'Body', with: 'I love this place!'
     click_button('Add Review')
     expect(page).to have_content("Rating can't be blank")
   end
 
   scenario 'I want to review a study spot' do
-    spot1 = Spot.create!(
-      state: "MA", city: 'Boston',
-      zip_code: "12345", address: "33 Harrison Ave.",
-      name: "Launch Academy",
-      description: "It's a big room.",
-      phone: "1434321434",
-      website_url: "http://launchacademy.com",
-      category: "room"
-    )
-    visit new_spot_review_path(spot1)
+    spot = FactoryGirl.create(:spot)
+
+    visit new_spot_review_path(spot)
     choose '2'
     fill_in 'Body', with: ''
     click_button('Add Review')
