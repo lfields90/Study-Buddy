@@ -9,14 +9,17 @@ feature "User reads and votes on reviews" do
   # - User can see all reviews for a spot.
 
   pending scenario 'I want to see reviews for a spot' do
-    visit '/spots/1'
+    spot = FactoryGirl.create(:spot)
+    vist spot_path(spot)
 
     expect(page).to have_content("I hate this place!")
     expect(page).to have_content("This place rocks!")
   end
 
   pending scenario 'I want to endorse another review' do
-    visit '/spots/3'
+    spot = FactoryGirl.create(:spot)
+    vist spot_path(spot)
+
     click_button('upvote')
 
     expect(page).to have_content("You upped that review!")
