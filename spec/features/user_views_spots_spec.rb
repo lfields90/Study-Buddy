@@ -8,17 +8,12 @@ feature "User views study spots" do
   # - User can view a list of spots and see details for each spot.
 
   scenario 'I want to view study spots' do
-    Spot.create!(
-      state: "MA", city: 'Boston',
-      zip_code: "12345", address: "33 Harrison Ave.",
-      name: "Launch Academy",
-      description: "It's a big room.",
-      phone: "1434321434",
-      website_url: "http://launchacademy.com",
-      category: "room"
-    )
-    visit '/spots'
+    spot1 = FactoryGirl.create(:spot)
+    spot2 = FactoryGirl.create(:spot)
 
-    expect(page).to have_content("Launch Academy")
+    visit spots_path
+
+    expect(page).to have_content(spot1.name)
+    expect(page).to have_content(spot2.name)
   end
 end
