@@ -19,10 +19,14 @@
       <ul>
         <li>Rating: <%= review.rating %></li>
         <li>Review: <%= review.body %></li>
+        <li><%= link_to "Edit a review", edit_spot_review_path(@spot, review) %></li>
+        <li><%= link_to "Delete review", spot_review_path(@spot, review), method: :delete %></li>
       </ul>
     <% end %>
 
-    <%= link_to "Home", spots_path %>
-    <%= link_to "Add a Review", new_spot_review_path(@spot) %>
+    <%= link_to "Home", spots_path %><br>
+    <%= link_to "Edit a spot", edit_spot_path %><br>
+
+    <%= link_to "Add a review", new_spot_review_path(@spot) %>
   </div>
 </div>
