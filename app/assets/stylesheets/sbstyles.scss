@@ -1,16 +1,16 @@
 body {
-  background-image: image_url("background1.jpg");
+  background-image: image-url("background1.jpg");
   font-family: "Karma", serif;
 }
 
 h1 {
+  color: #df7401;
   font-weight: bold;
-  color: #DF7401;
 }
 
 h2 {
+  color: #faac58;
   font-weight: bold;
-  color: #FAAC58;
 }
 
 .top-bar {
@@ -22,5 +22,5 @@ h2 {
 }
 
 .button a {
-  color: #FFFFFF;
+  color: #ffffff;
 }
