@@ -11,7 +11,7 @@ feature "User deletes a spot" do
     spot = FactoryGirl.create(:spot)
     visit spot_path(spot)
 
-    click_link "Delete a spot"
+    click_link "Delete spot"
     expect(page).to have_content("Spot destroyed")
   end
 end
