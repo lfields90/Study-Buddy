@@ -14,12 +14,18 @@
     </ul>
 
     <h2>Reviews!</h2>
-
+    <% x = 0 %>
     <% @reviews.each do |review| %>
       <ul>
+        <div class='spot_number' style="visibility: hidden"><%= @spot.id %></div>
+        <div class='review_number' style="visibility: hidden"><%= review.id %></div>
         <li>Rating: <%= review.rating %></li>
         <li>Review: <%= review.body %></li>
+        <p>Total votes: <strong class='votes'><%= review.vote_count %></strong></p>
+        <button onclick = upvote(<%= x %>)>Upvote</button>
+        <button onclick = downvote(<%= x %>)>Downvote</button>
       </ul>
+      <% x += 1 %>
     <% end %>
 
     <%= link_to "Home", spots_path %>

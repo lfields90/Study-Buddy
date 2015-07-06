@@ -19,6 +19,18 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def upvote
+    @review = Review.find(params[:id])
+    @review.vote_count += 1
+    @review.save
+  end
+
+  def downvote
+    @review = Review.find(params[:id])
+    @review.vote_count -= 1
+    @review.save
+  end
+
   private
 
   def review_params

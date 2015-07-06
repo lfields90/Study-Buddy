@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :spots do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:new, :create] do
+      member do
+        patch 'upvote'
+        patch 'downvote'
+      end
+    end
   end
 end
