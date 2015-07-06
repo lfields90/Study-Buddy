@@ -2,14 +2,17 @@ require 'rails_helper'
 
 feature "User edits a spot" do
 
-# As a user I want to be able to edit a spot I created
-# so that the information is up-to-date.
-# Acceptance criteria:
-# User can edit the spot they created.
+  # As a user I want to be able to edit a spot I created
+  # so that the information is up-to-date.
+  # Acceptance criteria:
+  # User can edit the spot they created.
 
-  scenario 'I want to edit a study spot' do
+  before :each do
     spot = FactoryGirl.create(:spot)
     visit edit_spot_path(spot)
+  end
+
+  scenario 'I want to edit a study spot' do
 
     fill_in 'State', with: "MA"
     fill_in 'City', with: "Boston"
@@ -27,8 +30,6 @@ feature "User edits a spot" do
   end
 
   scenario 'Invalid edit of a study spot' do
-    spot = FactoryGirl.create(:spot)
-    visit edit_spot_path(spot)
 
     fill_in 'Name', with: ""
     click_button("Edit spot")
