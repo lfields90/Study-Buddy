@@ -23,7 +23,7 @@ end
 
 FactoryGirl.define do
   factory :review do |f|
-    f.body { Faker::Lorem.name }
+    f.body { Faker::Lorem.sentence(3) }
     f.rating { rand(1..5) }
     f.spot_id { 1 }
     f.user_id { 1 }

@@ -8,6 +8,7 @@ feature "User deletes a spot" do
   # User can edit the spot they created.
 
   scenario 'I want to delete a study spot' do
+    skip
     spot = FactoryGirl.create(:spot)
     visit spot_path(spot)
 
