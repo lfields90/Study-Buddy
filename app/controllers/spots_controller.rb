@@ -20,7 +20,7 @@ class SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
-    @reviews = @spot.reviews
+    @reviews = @spot.reviews.order('created_at DESC')
   end
 
   def edit
