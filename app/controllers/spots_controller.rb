@@ -1,6 +1,6 @@
 class SpotsController < ApplicationController
   def index
-    @spots = Spot.all
+    @spots = Spot.order('created_at DESC').page params[:page]
   end
 
   def new
@@ -20,7 +20,7 @@ class SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
-    @reviews = @spot.reviews.order('created_at DESC')
+    @reviews = @spot.reviews.order('created_at DESC').page params[:page]
   end
 
   def edit
