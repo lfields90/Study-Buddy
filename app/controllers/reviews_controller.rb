@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.spot_id = @spot.id
     if @review.save
-      flash[:notice] = "Review successfully added"
+      flash[:success] = "Review successfully added"
       redirect_to spot_path(@spot)
     else
       flash[:alert] = @review.errors.full_messages.join(".  ")
@@ -29,6 +29,32 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.vote_count -= 1
     @review.save
+  end
+
+  def edit
+    @spot = Spot.find params[:spot_id]
+    @review = Review.find(params[:id])
+    @ratings = [1, 2, 3, 4, 5]
+  end
+
+  def update
+    @spot = Spot.find params[:spot_id]
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      flash[:success] = "Review successfully updated"
+      redirect_to spot_path(@spot)
+    else
+      flash[:alert] = @review.errors.full_messages.join(".  ")
+      render :edit
+    end
+  end
+
+  def destroy
+    @spot = Spot.find(params[:spot_id])
+    @review = Review.find(params[:id])
+    @review.destroy
+    flash[:notice] = "Review destroyed"
+    redirect_to spots_path(@spot)
   end
 
   private

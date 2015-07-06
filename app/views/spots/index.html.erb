@@ -1,8 +1,9 @@
-<h2>Spots</h2>
-  <ul>
-    <% @spots.each do |spot| %>
-        <li><%= link_to spot.name, spot_path(spot) %></li>
-    <% end %>
-  </ul>
+<h1>Spots</h1>
+  <% @spots.each do |spot| %>
+    <div class="panel">
+      <p><%= link_to spot.name, spot_path(spot) %></p>
+    </div>
+  <% end %>
 
-<%= link_to "Add a spot", new_spot_path %>
+<%= link_to "Add a spot", new_spot_path, class: "button radius" %>
+<%= paginate @spots %>

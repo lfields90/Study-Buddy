@@ -1,0 +1,25 @@
+$primary-orange: #df7401;
+$secondary-orange: #faac58;
+
+body {
+  background-image: image-url("background1.jpg");
+  font-family: "Karma", serif;
+}
+
+h1 {
+  color: $primary-orange;
+  font-weight: bold;
+}
+
+h2 {
+  color: $secondary-orange;
+  font-weight: bold;
+}
+
+.top-bar {
+  margin-bottom: 10px;
+}
+
+.button {
+  margin-right: 10px;
+}
