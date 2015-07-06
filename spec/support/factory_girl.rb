@@ -5,9 +5,7 @@ FactoryGirl.define do
     f.email { Faker::Internet.email }
     f.password { Faker::Internet.password(10, 20) }
   end
-end
 
-FactoryGirl.define do
   factory :spot do |f|
     f.name { Faker::Company.name }
     f.description { Faker::Company.bs }
@@ -19,9 +17,7 @@ FactoryGirl.define do
     f.website_url { Faker::Internet.url }
     f.phone { Faker::Number.number(10) }
   end
-end
 
-FactoryGirl.define do
   factory :review do |f|
     f.body { Faker::Lorem.sentence(3) }
     f.rating { rand(1..5) }
