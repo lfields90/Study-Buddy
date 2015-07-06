@@ -8,14 +8,6 @@ feature "User reads and votes on reviews" do
   # - User can upvote or downvote another user's review.
   # - User can see all reviews for a spot.
 
-  pending scenario 'I want to see reviews for a spot' do
-    spot = FactoryGirl.create(:spot)
-    vist spot_path(spot)
-
-    expect(page).to have_content("I hate this place!")
-    expect(page).to have_content("This place rocks!")
-  end
-
   pending scenario 'I want to endorse another review' do
     spot = FactoryGirl.create(:spot)
     vist spot_path(spot)
