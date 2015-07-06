@@ -1,7 +1,8 @@
 class Spot < ActiveRecord::Base
   belongs_to :user
   has_many :reviews, dependent: :destroy
-
+  paginates_per 10
+  
   validates :name, presence: true
   validates :description, presence: true
   validates :category, presence: true

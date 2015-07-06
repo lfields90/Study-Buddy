@@ -24,6 +24,7 @@
       </ul>
     <% end %>
 
+    <%= paginate @reviews %>
     <%= link_to "Home", spots_path %><br>
     <%= link_to "Edit a spot", edit_spot_path %><br>
     <%= link_to "Delete a spot", spot_path(@spot), method: :delete %><br>
