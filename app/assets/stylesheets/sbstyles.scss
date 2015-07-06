@@ -1,15 +1,18 @@
+$primary-orange: #df7401;
+$secondary-orange: #faac58;
+
 body {
   background-image: image-url("background1.jpg");
   font-family: "Karma", serif;
 }
 
 h1 {
-  color: #df7401;
+  color: $primary-orange;
   font-weight: bold;
 }
 
 h2 {
-  color: #faac58;
+  color: $secondary-orange;
   font-weight: bold;
 }
 
@@ -22,5 +25,5 @@ h2 {
 }
 
 .button a {
-  color: #ffffff;
+  color: white;
 }
