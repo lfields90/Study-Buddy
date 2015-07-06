@@ -15,30 +15,3 @@
  *= require foundation_and_overrides
 
  */
-
- body {
-   background-image: url("background1.jpg");
-   font-family: "Karma", serif;
- }
-
- h1 {
-   font-weight: bold;
-   color: #DF7401;
- }
-
- h2 {
-   font-weight: bold;
-   color: #FAAC58;
- }
-
- .top-bar {
-   margin-bottom: 10px;
- }
-
- .button {
-   margin-right: 10px;
- }
-
- .button a {
-   color: #FFFFFF;
- }

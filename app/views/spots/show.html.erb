@@ -22,7 +22,7 @@
       </div>
     <% end %>
 
-    <p class="button radius"><%= link_to "Home", spots_path %></p>
-    <p class="button radius"><%= link_to "Add a Review", new_spot_review_path(@spot) %></p>
+    <%= link_to "Home", spots_path, class: "button radius" %>
+    <%= link_to "Add a Review", new_spot_review_path(@spot), class: "button radius" %>
   </div>
 </div>
