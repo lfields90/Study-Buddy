@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'foundation-rails'
 gem 'rails_12factor'
+gem 'kaminari'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'

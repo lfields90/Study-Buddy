@@ -26,8 +26,8 @@
       </div>
     <% end %>
 
+    <%= paginate @reviews %>
     <%= link_to "Add a Review", new_spot_review_path(@spot), class: "button radius" %><br />
     <%= link_to "Home", spots_path, class: "button radius" %>
-
   </div>
 </div>
