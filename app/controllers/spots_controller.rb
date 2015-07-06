@@ -29,8 +29,13 @@ class SpotsController < ApplicationController
 
   def update
     @spot = Spot.find(params[:id])
-    @spot.update(spot_params)
-    redirect_to spot_path(@spot)
+    if @spot.update(spot_params)
+      flash[:success] = "Spot updated."
+      redirect_to spot_path(@spot)
+    else
+      flash[:alert] = @spot.errors.full_messages.join(".  ")
+      render :edit
+    end
   end
 
   def destroy
