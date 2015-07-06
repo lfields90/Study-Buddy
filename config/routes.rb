@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :spots do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, except: [:index, :show]
   end
 end

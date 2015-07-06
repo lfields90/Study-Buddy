@@ -12,17 +12,22 @@
       <span><b>Photo:</b> <%= @spot.photo_url %></span><br />
       <span><b>Phone:</b> <%= @spot.phone %></span>
     </div>
+    <%= link_to "Edit spot", edit_spot_path, class: "button radius" %>
+    <%= link_to "Delete spot", spot_path(@spot), method: :delete, class: "button radius" %>
 
     <h2>Reviews!</h2>
 
     <% @reviews.each do |review| %>
       <div class="panel">
-        <span><b><span>Rating:</b> <%= review.rating %></span><br />
-        <span><b><span>Review:</b> <%= review.body %></span>
+        <span><b>Rating:</b> <%= review.rating %></span><br />
+        <p><b>Review:</b> <%= review.body %></p>
+      <%= link_to "Edit review", edit_spot_review_path(@spot, review), class: "button tiny radius" %>
+      <%= link_to "Delete review", spot_review_path(@spot, review), method: :delete, class: "button tiny radius" %>
       </div>
     <% end %>
 
+    <%= link_to "Add a Review", new_spot_review_path(@spot), class: "button radius" %><br />
     <%= link_to "Home", spots_path, class: "button radius" %>
-    <%= link_to "Add a Review", new_spot_review_path(@spot), class: "button radius" %>
+
   </div>
 </div>
