@@ -1,28 +1,28 @@
 <div class="row">
   <div class="large-12">
-    <h2> <%= @spot.name %> </h2>
-    <ul>
-      <li>Description: <%= @spot.description %></li>
-      <li>Category: <%= @spot.category %></li>
-      <li>Address: <%= @spot.address %></li>
-      <li>City: <%= @spot.city %></li>
-      <li>State: <%= @spot.state %></li>
-      <li>Zip Code: <%= @spot.zip_code %></li>
-      <li>Website: <%= @spot.website_url %></li>
-      <li>Photo: <%= @spot.photo_url %></li>
-      <li>Phone: <%= @spot.phone %></li>
-    </ul>
+    <h1> <%= @spot.name %> </h1>
+    <div class="panel">
+      <span><b>Description:</b> <%= @spot.description %></span><br />
+      <span><b>Category:</b> <%= @spot.category %></span><br />
+      <span><b>Address:</b> <%= @spot.address %></span><br />
+      <span><b>City:</b> <%= @spot.city %></span><br />
+      <span><b>State:</b> <%= @spot.state %></span><br />
+      <span><b>Zip Code:</b> <%= @spot.zip_code %></span><br />
+      <span><b>Website:</b> <%= @spot.website_url %></span><br />
+      <span><b>Photo:</b> <%= @spot.photo_url %></span><br />
+      <span><b>Phone:</b> <%= @spot.phone %></span>
+    </div>
 
     <h2>Reviews!</h2>
 
     <% @reviews.each do |review| %>
-      <ul>
-        <li>Rating: <%= review.rating %></li>
-        <li>Review: <%= review.body %></li>
-      </ul>
+      <div class="panel">
+        <span><b><span>Rating:</b> <%= review.rating %></span><br />
+        <span><b><span>Review:</b> <%= review.body %></span>
+      </div>
     <% end %>
 
-    <%= link_to "Home", spots_path %>
-    <%= link_to "Add a Review", new_spot_review_path(@spot) %>
+    <p class="button radius"><%= link_to "Home", spots_path %></p>
+    <p class="button radius"><%= link_to "Add a Review", new_spot_review_path(@spot) %></p>
   </div>
 </div>
