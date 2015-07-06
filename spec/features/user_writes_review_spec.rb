@@ -26,7 +26,7 @@ feature "User writes a review for a Spot" do
     expect(page).to have_content("Review successfully added")
   end
 
-  scenario 'I want to review a study spot' do
+  scenario 'I want to review a study spot but left rating blank' do
     spot = FactoryGirl.create(:spot)
 
     visit new_spot_review_path(spot)
@@ -35,7 +35,7 @@ feature "User writes a review for a Spot" do
     expect(page).to have_content("Rating can't be blank")
   end
 
-  scenario 'I want to review a study spot' do
+  scenario 'I want to review a study spot but left body blank' do
     spot = FactoryGirl.create(:spot)
 
     visit new_spot_review_path(spot)

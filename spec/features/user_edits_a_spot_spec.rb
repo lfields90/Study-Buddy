@@ -26,7 +26,7 @@ feature "User edits a spot" do
     expect(page).to have_content("Launch Academy")
   end
 
-  scenario 'I want to edit a study spot' do
+  scenario 'Invalid edit of a study spot' do
     spot = FactoryGirl.create(:spot)
     visit edit_spot_path(spot)
 

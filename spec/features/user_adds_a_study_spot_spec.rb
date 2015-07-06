@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "adding spot" do
-  scenario "users add a new spot" do
+  scenario "user adds a new spot" do
     visit new_spot_path
 
     fill_in "Name", with: "Launch Academy"
@@ -21,5 +21,17 @@ feature "adding spot" do
     click_button "Add new spot"
 
     expect(page).to have_content("Spot added.")
+  end
+
+  feature "adding spot" do
+    scenario "Invalid addition of new spot" do
+      visit new_spot_path
+
+      click_button "Add new spot"
+
+      expect(page).to have_content("Name can't be blank")
+      expect(page).to have_content("Description can't be blank")
+      expect(page).to have_content("City can't be blank")
+    end
   end
 end
