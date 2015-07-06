@@ -12,7 +12,7 @@ feature "adding review" do
     click_button 'Log in'
 
     visit spot_path(spot)
-    click_link("Add a review")
+    click_link("Add a Review")
   end
 
   scenario "users adds a new review" do
