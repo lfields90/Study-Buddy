@@ -25,4 +25,14 @@ feature "User edits a spot" do
     expect(page).to have_content("33 Harrison Ave")
     expect(page).to have_content("Launch Academy")
   end
+
+  scenario 'I want to edit a study spot' do
+    spot = FactoryGirl.create(:spot)
+    visit edit_spot_path(spot)
+
+    fill_in 'Name', with: ""
+    click_button("Edit spot")
+
+    expect(page).to have_content("Name can't be blank")
+  end
 end

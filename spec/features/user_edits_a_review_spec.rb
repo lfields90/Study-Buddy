@@ -20,4 +20,17 @@ feature "User edits a review" do
     expect(page).to have_content(spot.name)
     expect(page).to have_content('Pretty cool')
   end
+
+  scenario 'I want to edit a study spot review' do
+    user = FactoryGirl.create(:user)
+    spot = FactoryGirl.create(:spot)
+    review = FactoryGirl.create(:review, user_id: user.id, spot_id: spot.id)
+    visit edit_spot_review_path(spot, review)
+
+    fill_in 'Body', with: ''
+    click_button("Edit Review")
+
+    expect(page).to have_content(spot.name)
+    expect(page).to have_content("Body can't be blank")
+  end
 end
