@@ -7,10 +7,11 @@ feature "User deletes a spot" do
   # Acceptance criteria:
   # User can edit the spot they created.
 
-  pending scenario 'I want to delete a study spot' do
+  scenario 'I want to delete a study spot' do
     spot = FactoryGirl.create(:spot)
     visit spot_path(spot)
 
-    expect(page).to have_content("Spot deleted")
+    click_link "Delete a spot"
+    expect(page).to have_content("Spot destroyed")
   end
 end

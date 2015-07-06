@@ -41,7 +41,7 @@ class SpotsController < ApplicationController
   def destroy
     @spot = Spot.find(params[:id])
     @spot.destroy
-    flash[:notice] = "Spot destroyed"
+    flash[:success] = "Spot destroyed"
     redirect_to spots_path
   end
 
