@@ -23,3 +23,33 @@ h2 {
 .button {
   margin-right: 10px;
 }
+
+.full-width {
+  max-width: 1400px;
+}
+
+// Footer C
+.footer {
+  //background-color: team green;
+  padding: 2rem 4rem;
+  text-align: center;
+  color: black;
+}
+
+.footer .columns {
+     border-left: 1px solid scale-color(#fff, $lightness: -30%);
+     min-height: 200px;
+}
+
+
+.footer-links {
+  list-style-type: none;
+  a {
+    color: black;
+    font-weight: 300;
+    font-size: .8rem;
+  }
+  li {
+    margin-top: .3rem;
+  }
+}
