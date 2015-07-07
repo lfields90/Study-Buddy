@@ -1,6 +1,11 @@
 class SpotsController < ApplicationController
   def index
-    @spots = Spot.order('created_at DESC').page params[:page]
+    @spots = Spot.all
+    if params[:search]
+      @spots = Spot.search(params[:search]).order("created_at DESC")
+    else
+      @spots = Spot.order("created_at DESC").page params[:page]
+    end
   end
 
   def new

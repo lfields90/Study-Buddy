@@ -6,4 +6,15 @@
   <% end %>
 
 <%= link_to "Add a spot", new_spot_path, class: "button small radius" %>
-<%= paginate @spots %>
+
+
+<%= form_tag(spots_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Spots" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<% if @spots.present? %>
+  <%= render @spots %>
+<% else %>
+  <p>There are no spots containing the infomation given in query.</p>
+<% end %>
