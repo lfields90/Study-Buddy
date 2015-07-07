@@ -9,7 +9,18 @@ feature "User edits a review" do
 
   before :each do
     user = FactoryGirl.create(:user)
-    spot = FactoryGirl.create(:spot)
+    spot = Spot.new
+    spot.name = 'asdfasdf'
+    spot.description = 'lala'
+    spot.category = 'asdf'
+    spot.address = '44 street'
+    spot.city = 'Dove'
+    spot.state = 'MA'
+    spot.zip_code = '12345'
+    spot.phone = '1234565432'
+    spot.user = user
+
+    spot.save
     review = FactoryGirl.create(:review, user_id: user.id, spot_id: spot.id)
     visit edit_spot_review_path(spot, review)
 

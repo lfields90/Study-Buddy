@@ -1,0 +1,8 @@
+<h1>Users</h1>
+  <% @users.each do |user| %>
+    <div class="panel">
+      <p><%= user.email %></p>
+    </div>
+  <% end %>
+
+<%= paginate @users %>

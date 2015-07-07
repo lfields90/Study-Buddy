@@ -8,7 +8,19 @@ feature "User edits a spot" do
   # User can edit the spot they created.
 
   before :each do
-    spot = FactoryGirl.create(:spot)
+    user = FactoryGirl.create(:user)
+    spot = Spot.new
+    spot.name = 'asdfasdf'
+    spot.description = 'lala'
+    spot.category = 'asdf'
+    spot.address = '44 street'
+    spot.city = 'Dove'
+    spot.state = 'MA'
+    spot.zip_code = '12345'
+    spot.phone = '1234565432'
+    spot.user = user
+
+    spot.save
     visit edit_spot_path(spot)
   end
 
