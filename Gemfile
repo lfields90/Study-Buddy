@@ -23,7 +23,9 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'pry-rails'
-  gem 'selenium-webdriver'
+  # gem 'selenium-webdriver'
+  gem 'poltergeist'
+  gem 'webrat'
 end
 
 group :test do

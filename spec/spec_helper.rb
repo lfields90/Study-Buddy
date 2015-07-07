@@ -13,6 +13,9 @@
 # it.
 require 'coveralls'
 Coveralls.wear!('rails')
+
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 #
@@ -40,6 +43,7 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
+
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
