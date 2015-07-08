@@ -12,7 +12,7 @@ feature "Admin deletes spots" do
       fill_in 'Password', with: user.password
 
       click_button 'Log in'
-      
+
       spot = Spot.new
       spot.name = 'asdfasdf'
       spot.description = 'lala'

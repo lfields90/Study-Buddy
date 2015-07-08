@@ -26,7 +26,7 @@ feature "Admin deletes review" do
       user: user
       )
 
-      review = Review.create!(
+      Review.create!(
       rating: 4,
       body: "Sooooooo terrible!",
       spot: spot,
@@ -61,7 +61,7 @@ feature "Admin deletes review" do
       user: user
       )
 
-      review = Review.create!(
+      Review.create!(
       rating: 4,
       body: "Sooooooo terrible!",
       spot: spot,

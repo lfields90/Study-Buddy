@@ -1,8 +1,13 @@
 require 'rails_helper'
 
-feature "admin can see and delete users" do
-  scenario "admin sees a list of users" do
+feature "Admin deletes users" do
+
+  scenario 'I am an admin and I want to delete a user' do
+
+    FactoryGirl.create(:user)
     user = FactoryGirl.create(:admin_user)
+    FactoryGirl.create(:user)
+    FactoryGirl.create(:user)
 
     visit new_user_session_path
 
@@ -10,13 +15,9 @@ feature "admin can see and delete users" do
     fill_in 'Password', with: user.password
 
     click_button 'Log in'
-    visit users_path
-    expect(page).to have_content(user.email)
-  end
 
-  scenario "non-admin does not see a list of users" do
-    user = FactoryGirl.create(:user)
     visit users_path
-    expect(page).to have_content("Access denied! XD")
+    first(:link, "Delete user").click
+    expect(page).to have_content("User destroyed")
   end
 end

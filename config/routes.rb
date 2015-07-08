@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :spots do
     resources :reviews, except: [:index, :show]
   end
-  resources :users, only: [:index]
+  resources :users, only: [:index, :destroy]
 end

@@ -7,4 +7,13 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def destroy
+    if current_user.try(:admin?)
+      @user = User.find(params[:id])
+      @user.destroy
+      flash[:success] = "User destroyed"
+      redirect_to users_path
+    end
+  end
 end
