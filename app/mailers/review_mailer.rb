@@ -1,9 +1,9 @@
-class ReviewMailer < ApplicationMailer
-  def new_review(review)
-    @review = review
+class ReviewMailer < ActionMailer::Base
+  default from: "\"StudyBuddy\" <user@example.com>"
 
-    mail(
-      to: review.spot.user.email,
-      subject: "New Review for #{review.spot.name}")
+  def new_review(spot)
+    @spot = spot
+    subject = "There is a new review for #{review.spot.name}"
+    mail(to: review.spot.user.email, subject: subject)
   end
 end
