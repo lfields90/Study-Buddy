@@ -17,9 +17,10 @@
 
     <h2>Reviews!</h2>
     <% x = 0 %>
+      <div id='user_number' style="visibility: collapse"><%= current_user.id %></div>
     <% @reviews.each do |review| %>
-        <div class='spot_number' style="visibility: hidden"><%= @spot.id %></div>
-        <div class='review_number' style="visibility: hidden"><%= review.id %></div>
+        <div class='spot_number' style="visibility: collapse"><%= @spot.id %></div>
+        <div class='review_number' style="visibility: collapse"><%= review.id %></div>
         <div class="panel">
           <span><b>Rating:</b> <%= review.rating %></span><br />
           <p><b>Review:</b> <%= review.body %></p>
@@ -27,10 +28,19 @@
           <%= link_to "Delete review", spot_review_path(@spot, review), method: :delete, class: "button tiny radius" %>
 
         <p>Total votes: <strong class='votes'><%= review.vote_count %></strong></p>
-        <button onclick = upvote(<%= x %>)>Upvote</button>
-        <button onclick = downvote(<%= x %>)>Downvote</button>
+
+      <% if @voted.include?(review.id) %>
+        <button style="display: block" class='revoke' onclick = revoke(<%= x %>)>Revoke</button>
+        <button style="display: none" class='upvote' onclick = upvote(<%= x %>)>Upvote</button>
+        <button style="display: none" class='downvote' onclick = downvote(<%= x %>)>Downvote</button>
+      <% else %>
+        <button style="display: none" class='revoke' onclick = revoke(<%= x %>)>Revoke</button>
+        <button style="display: block" class='upvote' onclick = upvote(<%= x %>)>Upvote</button>
+        <button style="display: block" class='downvote' onclick = downvote(<%= x %>)>Downvote</button>
+      <% end %>
       </div>
       <% x += 1 %>
+
     <% end %>
 
     <%= paginate @reviews %>

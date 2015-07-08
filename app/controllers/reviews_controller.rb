@@ -23,12 +23,21 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.vote_count += 1
     @review.save
+    if @review.save
+      render json: {status: "good"}
+    else
+      render json: {status: "bad"}
+    end
   end
 
   def downvote
     @review = Review.find(params[:id])
     @review.vote_count -= 1
-    @review.save
+    if @review.save
+      render json: {status: "good"}
+    else
+      render json: {status: "bad"}
+    end
   end
 
   def edit
