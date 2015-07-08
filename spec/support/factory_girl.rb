@@ -13,9 +13,9 @@ FactoryGirl.define do
     end
 
     factory :signed_in_user do
-      current_sign_in_at {
+      current_sign_in_at do
         DateTime.now.in_time_zone("Pacific Time (US & Canada)")
-      }
+      end
     end
   end
 
