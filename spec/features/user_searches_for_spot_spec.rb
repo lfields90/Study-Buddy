@@ -23,6 +23,8 @@ feature "searching" do
     fill_in "search", with: "Gibberish"
     click_button("Search")
 
-    expect(page).to have_content("There are no spots containing the infomation given in query.")
+    expect(page).to have_content("
+      There are no spots containing the infomation given in query."
+      )
   end
 end

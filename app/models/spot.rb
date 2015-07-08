@@ -19,9 +19,9 @@ class Spot < ActiveRecord::Base
           OR zip_code ILIKE ?
           OR city ILIKE ?
           OR state ILIKE ?
-          OR category ILIKE ? ", "%#{search}%",
+          OR category ILIKE ? ",
           "%#{search}%", "%#{search}%", "%#{search}%",
-          "%#{search}%", "%#{search}%", "%#{search}%"
+          "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"
         )
   end
 end

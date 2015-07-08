@@ -26,8 +26,8 @@ h2 {
 }
 
 .has-form {
-  top: 0; // adjust distance from left here
   min-width: 14rem; // adjust width here
+  top: 0; // adjust distance from left here
 
   @media only screen and (max-width: 40em) {
     min-width: 10rem;
