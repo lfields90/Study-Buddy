@@ -4,17 +4,17 @@ feature "Admin deletes review" do
 
   scenario 'I want to delete a review and am not an admin' do
 
-      user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:user)
 
-      visit new_user_session_path
+    visit new_user_session_path
 
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
 
-      click_button 'Log in'
-      user.admin = false
+    click_button 'Log in'
+    user.admin = false
 
-      spot = Spot.create!(
+    spot = Spot.create!(
       name: 'asdfasdf',
       description: 'lala',
       category: 'asdf',
@@ -24,32 +24,34 @@ feature "Admin deletes review" do
       zip_code: '12345',
       phone: '1234565432',
       user: user
-      )
+    )
 
-      Review.create!(
+    Review.create!(
       rating: 4,
       body: "Sooooooo terrible!",
       spot: spot,
-      user: user,
-      )
+      user: user
+    )
 
     visit spot_path(spot)
     click_link "Delete review"
-    expect(page).to have_content("You don't have permission to destroy that review.")
+    expect(page).to have_content(
+      "You don't have permission to destroy that review."
+    )
   end
 
   scenario 'I want to delete a review and am an admin' do
 
-      user = FactoryGirl.create(:admin_user)
+    user = FactoryGirl.create(:admin_user)
 
-      visit new_user_session_path
+    visit new_user_session_path
 
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
 
-      click_button 'Log in'
+    click_button 'Log in'
 
-      spot = Spot.create!(
+    spot = Spot.create!(
       name: 'asdfasdf',
       description: 'lala',
       category: 'asdf',
@@ -59,14 +61,14 @@ feature "Admin deletes review" do
       zip_code: '12345',
       phone: '1234565432',
       user: user
-      )
+    )
 
-      Review.create!(
+    Review.create!(
       rating: 4,
       body: "Sooooooo terrible!",
       spot: spot,
-      user: user,
-      )
+      user: user
+    )
 
     visit spot_path(spot)
     click_link "Delete spot"

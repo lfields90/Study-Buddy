@@ -13,10 +13,11 @@ FactoryGirl.define do
     end
 
     factory :signed_in_user do
-      current_sign_in_at { DateTime.now.in_time_zone("Pacific Time (US & Canada)") }
+      current_sign_in_at {
+        DateTime.now.in_time_zone("Pacific Time (US & Canada)")
+      }
     end
   end
-
 
   factory :spot do |f|
     f.name { Faker::Company.name }
