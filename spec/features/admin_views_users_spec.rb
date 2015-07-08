@@ -20,7 +20,7 @@ feature "admin can see users" do
     FactoryGirl.create(:user)
 
     visit users_path
-    
+
     expect(page).to have_content("Access denied! XD")
   end
 end

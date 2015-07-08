@@ -45,7 +45,7 @@ feature "Users edit a spot" do
     fill_in 'Password', with: user.password
 
     click_button 'Log in'
-    
+
     visit edit_spot_path(spot)
 
     fill_in 'Name', with: ""
