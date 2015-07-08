@@ -3,16 +3,14 @@ require "rails_helper"
 feature "adding spot" do
   scenario "user adds a new spot" do
 
-    visit new_user_registration_path
+    user = FactoryGirl.create(:user)
 
-    fill_in 'Email', with: 'john@example.com'
-    fill_in 'Password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
-    fill_in 'First name', with: 'John'
-    fill_in 'Last name', with: 'Example'
-    fill_in 'Username', with: 'johnex'
+    visit new_user_session_path
 
-    click_button 'Sign up'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+
+    click_button 'Log in'
     click_link 'Add a spot'
 
     fill_in "Name", with: "Launch Academy"

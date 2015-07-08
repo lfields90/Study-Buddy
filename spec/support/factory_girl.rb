@@ -8,34 +8,30 @@ FactoryGirl.define do
     last_name { Faker::Name.last_name }
     username { Faker::Internet.user_name }
 
-    factory :admin_user do
+    factory :admin do
       admin true
     end
-
-    factory :signed_in_user do
-      current_sign_in_at do
-        DateTime.now.in_time_zone("Pacific Time (US & Canada)")
-      end
-    end
   end
 
-  factory :spot do |f|
-    f.name { Faker::Company.name }
-    f.description { Faker::Company.bs }
-    f.category { Faker::Commerce.department }
-    f.address { Faker::Address.street_address }
-    f.city { Faker::Address.city }
-    f.state { Faker::Address.state }
-    f.zip_code "02125"
-    f.website_url { Faker::Internet.url }
-    f.phone { Faker::Number.number(10) }
-    f.user_id "1"
+  factory :spot do
+    name { Faker::Company.name }
+    description { Faker::Company.bs }
+    category { Faker::Commerce.department }
+    address { Faker::Address.street_address }
+    city { Faker::Address.city }
+    state { Faker::Address.state }
+    zip_code "02125"
+    website_url { Faker::Internet.url }
+    phone { Faker::Number.number(10) }
+
+    user
   end
 
-  factory :review do |f|
-    f.body { Faker::Lorem.sentence(3) }
-    f.rating { rand(1..5) }
-    f.spot_id { 1 }
-    f.user_id { 1 }
+  factory :review do
+    body { Faker::Lorem.sentence(3) }
+    rating { rand(1..5) }
+
+    spot
+    user
   end
 end

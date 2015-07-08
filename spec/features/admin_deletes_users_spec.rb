@@ -5,7 +5,7 @@ feature "Admin deletes users" do
   scenario 'I am an admin and I want to delete a user' do
 
     FactoryGirl.create(:user)
-    user = FactoryGirl.create(:admin_user)
+    user = FactoryGirl.create(:admin)
     FactoryGirl.create(:user)
     FactoryGirl.create(:user)
 
