@@ -1,8 +1,8 @@
 class SpotsController < ApplicationController
   def index
-    @spots = Spot.all
     if params[:search]
       @spots = Spot.search(params[:search]).order("created_at DESC")
+      @spots = @spots.page(params[:page])
     else
       @spots = Spot.order("created_at DESC").page params[:page]
     end
@@ -25,7 +25,12 @@ class SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
-    @reviews = @spot.reviews.order('created_at DESC').page params[:page]
+    @reviews = @spot.reviews.order('created_at DESC')
+    if params[:search]
+      redirect_to spots_path(search: params[:search])
+      @spots = Spot.search(params[:search]).order("created_at DESC")
+      @spots = @spots.page(params[:page])
+    end
   end
 
   def edit

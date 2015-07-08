@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :spots do
     resources :reviews, except: [:index, :show]
   end
+  resources :searches , only: [:index]
 end
