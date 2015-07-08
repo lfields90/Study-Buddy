@@ -25,7 +25,7 @@ class SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
-    @reviews = @spot.reviews.order('created_at DESC')
+    @reviews = @spot.reviews.order('created_at DESC').page(params[:page])
     if params[:search]
       redirect_to spots_path(search: params[:search])
       @spots = Spot.search(params[:search]).order("created_at DESC")
