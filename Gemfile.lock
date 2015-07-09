@@ -79,6 +79,9 @@ GEM
     docile (1.1.5)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
+    email_spec (1.6.0)
+      launchy (~> 2.1)
+      mail (~> 2.2)
     erubis (2.7.0)
     execjs (2.5.2)
     factory_girl (4.5.0)
@@ -248,6 +251,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   coveralls
   devise
+  email_spec
   factory_girl_rails
   faker
   foundation-rails
