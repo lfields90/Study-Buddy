@@ -2,6 +2,7 @@ require "rails_helper"
 
 feature "adding review" do
   before :each do
+
     user = FactoryGirl.create(:user)
     spot = FactoryGirl.create(:spot)
 

@@ -9,6 +9,7 @@ class SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params)
+    @spot.user = current_user
     if @spot.save
       flash[:success] = "Spot added."
       redirect_to spots_path
@@ -40,9 +41,14 @@ class SpotsController < ApplicationController
 
   def destroy
     @spot = Spot.find(params[:id])
-    @spot.destroy
-    flash[:success] = "Spot destroyed"
-    redirect_to spots_path
+    if current_user.try(:admin?)
+      @spot.destroy
+      flash[:success] = "Spot destroyed"
+      redirect_to spots_path
+    else
+      flash[:notice] = "You don't have permission to destroy that spot."
+      redirect_to spot_path(@spot)
+    end
   end
 
   private
@@ -50,7 +56,7 @@ class SpotsController < ApplicationController
   def spot_params
     params.require(:spot).permit(
       :name, :description, :category, :address, :city, :state, :zip_code,
-      :website_url, :photo_url, :phone
+      :website_url, :photo_url, :phone, :user_id
     )
   end
 end
