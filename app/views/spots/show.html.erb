@@ -17,7 +17,11 @@
 
     <h2>Reviews!</h2>
     <% x = 0 %>
-      <div id='user_number' style="visibility: collapse"><%= current_user.id %></div>
+<% if current_user == nil %>
+
+<% else %>
+        <div id='user_number' style="visibility: collapse"><%= current_user.id %></div>
+<% end %>
     <% @reviews.each do |review| %>
         <div class='spot_number' style="visibility: collapse"><%= @spot.id %></div>
         <div class='review_number' style="visibility: collapse"><%= review.id %></div>
