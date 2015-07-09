@@ -1,27 +1,19 @@
 ![Build Status](https://codeship.com/projects/5162aea0-00b1-0133-408b-22d901b45296/status?branch=master)![Code Climate](https://codeclimate.com/github/lfields90/study-buddy.png) ![Coverage Status](https://coveralls.io/repos/lfields90/study-buddy/badge.png)
 
 # StudyBuddy
+## General Information
 
-StudyBuddy is a group project for Launch Academy's 2015 Summer Cohort created by Nora Delaney, Lamonte Fields, Brian Hogue and Andrew Wortham. It is a site used to find good places to study as recommended and reviewed by users.
+StudyBuddy (http://the-study-buddy.herokuapp.com) is a group project Rails app for Launch Academy's 2015 Summer Cohort created by Nora Delaney, Lamonte Fields, Brian Hogue and Andrew Wortham. It is a site used to find good places to study as recommended and reviewed by users. It utilizes Ruby (2.0.0), CSS, HTML and Javascript.
 
-* Ruby version 2.0.0
+## Getting Started
 
-* System dependencies
+To run the app locally, run:
+<pre><code>rake db:create
+rake db:migrate
+rake db:seed</code></pre>
 
-* Configuration
+To start a server, run:
+<pre><code>rails s</code></pre>
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+To run the test suite, run:
+<pre><code>rake spec</code></pre>
