@@ -27,12 +27,13 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
   gem 'pry-rails'
   # gem 'selenium-webdriver'
-  gem 'poltergeist'
-  gem 'webrat'
+  #gem 'webrat'
 end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'database_cleaner'
+  gem 'poltergeist'
 end
 
 group :production do

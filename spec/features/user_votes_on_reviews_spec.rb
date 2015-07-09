@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User reads and votes on reviews" do
+feature "User reads and votes on reviews", js: true do
 
   # As a user I want to be able to read other reviews and vote on them
   # so that others know if the review is good.
@@ -8,41 +8,20 @@ feature "User reads and votes on reviews" do
   # - User can upvote or downvote another user's review.
   # - User can see all reviews for a spot.
 
-  scenario 'I want to endorse another review', :js => true do
+  scenario 'I want to endorse another review' do
 
-    visit new_user_registration_path
+    user = FactoryGirl.create(:user)
+    spot = FactoryGirl.create(:spot, user: user)
+    FactoryGirl.create(:review, spot: spot)
 
-    fill_in 'Email', with: 'What@what.com'
-    fill_in 'Password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
+    visit new_user_session_path
 
-    click_button 'Sign up'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
 
-    visit new_spot_path
+    click_button 'Log in'
 
-    fill_in "Name", with: "Launch Academy"
-    fill_in "Description", with: "This is a super chill, totally rad-tacular
-      place to study"
-    fill_in "Category", with: "Shared workspace"
-    fill_in "Address", with: "33 Harrison Ave"
-    fill_in "City", with: "Boston"
-    fill_in "State", with: "MA"
-    fill_in "Zip code", with: "03032"
-    fill_in "Website url", with: "http://pinballwizard.com"
-    fill_in "Photo url", with:
-      "http://www.bootcamps.in/wp-content/uploads/2013/01/
-      Launch_Academy_Logo.jpg"
-    fill_in "Phone", with: "6173659985"
-
-    click_button "Add new spot"
-
-    click_link "Launch Academy"
-
-    click_link "Add a Review"
-
-    choose "5"
-    fill_in "Body", with: "Great study spot"
-    click_button "Add Review"
+    click_link spot.name
 
     expect(page).to have_content("Total votes: 0")
 
