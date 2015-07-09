@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.spot_id = @spot.id
     if @review.save
+      ReviewMailer.new_review(@review).deliver_now
       flash[:success] = "Review successfully added"
       redirect_to spot_path(@spot)
     else
