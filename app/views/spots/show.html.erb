@@ -12,8 +12,8 @@
       <span><b>Photo:</b> <%= @spot.photo_url %></span><br />
       <span><b>Phone:</b> <%= @spot.phone %></span>
     </div>
-    <%= link_to "Edit spot", edit_spot_path, class: "button radius" %>
-    <%= link_to "Delete spot", spot_path(@spot), method: :delete, class: "button radius" %>
+    <%= link_to "Edit spot", edit_spot_path, class: "button small radius" %>
+    <%= link_to "Delete spot", spot_path(@spot), method: :delete, class: "button small radius" %>
 
     <h2>Reviews!</h2>
     <% x = 0 %>
@@ -44,7 +44,7 @@
     <% end %>
 
     <%= paginate @reviews %>
-    <%= link_to "Add a Review", new_spot_review_path(@spot), class: "button radius" %><br />
-    <%= link_to "Home", spots_path, class: "button radius" %>
+    <%= link_to "Home", spots_path, class: "button right small radius" %>
+    <%= link_to "Add a Review", new_spot_review_path(@spot), class: "button left small radius" %><br />
   </div>
 </div>

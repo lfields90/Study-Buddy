@@ -1,5 +1,6 @@
 $primary-orange: #df7401;
 $secondary-orange: #faac58;
+$review-button-color: #a4a4a4;
 
 body {
   background-image: image-url("background1.jpg");
@@ -20,6 +21,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-.button {
-  margin-right: 10px;
+.button.tiny.radius {
+  background-color: $review-button-color;
 }

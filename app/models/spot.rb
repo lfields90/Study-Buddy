@@ -11,4 +11,5 @@ class Spot < ActiveRecord::Base
   validates :state, presence: true
   validates :zip_code, presence: true, length: { is: 5 }
   validates :phone, length: { minimum: 10 }
+  validates :user, presence: true
 end
