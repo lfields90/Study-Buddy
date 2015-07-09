@@ -76,10 +76,10 @@ function revoke(n) {
             reviews[n].innerHTML + "/upvote"
           });
         } else {
-          spots = document.getElementsByClassName("spot_number");
-          reviews = document.getElementsByClassName("review_number");
-          vote = document.getElementsByClassName("votes");
-          votes = (parseInt(vote[n].innerHTML));
+          var spots = document.getElementsByClassName("spot_number");
+          var reviews = document.getElementsByClassName("review_number");
+          var vote = document.getElementsByClassName("votes");
+          var votes = (parseInt(vote[n].innerHTML));
           vote[n].innerHTML = (votes -= 1);
           $.ajax({
             type: "PATCH",
