@@ -29,7 +29,8 @@ class ReviewsController < ApplicationController
   def update
     @spot = Spot.find params[:spot_id]
     @review = Review.find(params[:id])
-    if (current_user && current_user.id == @review.user_id) || (current_user && current_user.admin?)
+    if (current_user && current_user.id == @review.user_id) ||
+      (current_user && current_user.admin?)
       if @review.update(review_params)
         flash[:success] = "Review updated"
         redirect_to spot_path(@spot)

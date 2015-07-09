@@ -29,7 +29,8 @@ feature "Users edit a review" do
     expect(page).to have_content("Great study spot")
   end
 
-  scenario 'I am a signed in user and I want to edit a review that I did not create' do
+  scenario 'I am a signed in user and I want to edit a review
+  that I did not create' do
     user = FactoryGirl.create(:user)
     spot = FactoryGirl.create(:spot)
     FactoryGirl.create(:review, spot: spot)
@@ -47,7 +48,9 @@ feature "Users edit a review" do
     fill_in "Body", with: "Great study spot"
     click_button "Edit Review"
 
-    expect(page).to have_content("You don't have permission to edit that review.")
+    expect(page).to have_content(
+      "You don't have permission to edit that review."
+    )
     expect(page).to have_content("Reviews!")
   end
 
@@ -74,7 +77,7 @@ feature "Users edit a review" do
   end
 
   scenario 'I am not signed in and I want to edit a review' do
-    user = FactoryGirl.create(:user)
+    FactoryGirl.create(:user)
     spot = FactoryGirl.create(:spot)
     FactoryGirl.create(:review, spot: spot)
 
@@ -86,7 +89,9 @@ feature "Users edit a review" do
     fill_in "Body", with: "Great study spot"
     click_button "Edit Review"
 
-    expect(page).to have_content("You don't have permission to edit that review.")
+    expect(page).to have_content(
+      "You don't have permission to edit that review."
+    )
     expect(page).to have_content("Reviews!")
   end
 

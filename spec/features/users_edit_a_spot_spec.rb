@@ -37,7 +37,8 @@ feature "Users edit a spot" do
     expect(page).to have_content("Reviews!")
   end
 
-  scenario 'I am a signed in user and I want to edit a spot that I did not create' do
+  scenario 'I am a signed in user and I want to edit a spot
+  that I did not create' do
     user = FactoryGirl.create(:user)
     spot = FactoryGirl.create(:spot)
 
