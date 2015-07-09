@@ -35,12 +35,12 @@
 
       <% if @voted.include?(review.id) %>
         <button style="display: block" class='revoke' onclick = revoke(<%= x %>)>Revoke</button>
-        <button style="display: none" class='upvote' onclick = upvote(<%= x %>)>Upvote</button>
-        <button style="display: none" class='downvote' onclick = downvote(<%= x %>)>Downvote</button>
+        <button style="display: none" class='upvote' onclick = vote(<%= x %>,<%= 1 %>)>Upvote</button>
+        <button style="display: none" class='downvote' onclick = vote(<%= x %>,<%= -1 %>)>Downvote</button>
       <% else %>
         <button style="display: none" class='revoke' onclick = revoke(<%= x %>)>Revoke</button>
-        <button style="display: block" class='upvote' onclick = upvote(<%= x %>)>Upvote</button>
-        <button style="display: block" class='downvote' onclick = downvote(<%= x %>)>Downvote</button>
+        <button style="display: block" class='upvote' onclick = vote(<%= x %>,<%= 1 %>)>Upvote</button>
+        <button style="display: block" class='downvote' onclick = vote(<%= x %>,<%= -1 %>)>Downvote</button>
       <% end %>
       </div>
       <% x += 1 %>
