@@ -1,4 +1,4 @@
-![Build Status](https://codeship.com/projects/5162aea0-00b1-0133-408b-22d901b45296/status?branch=master)![Code Climate](https://codeclimate.com/github/lfields90/study-buddy.png) ![Coverage Status](https://coveralls.io/repos/lfields90/study-buddy/badge.png)
+![Build Status](https://codeship.com/projects/5162aea0-00b1-0133-408b-22d901b45296/status?branch=master)![Code Climate](https://codeclimate.com/github/lfields90/Study-Buddy.png) ![Coverage Status](https://coveralls.io/repos/lfields90/Study-Buddy/badge.png)
 
 # StudyBuddy
 ## General Information
@@ -20,4 +20,4 @@ To start a server, run:
 To run the test suite, run:
 <pre><code>rake spec</code></pre>
 
-That's it! Thanks, and good luck studying!
+##### That's it! Thanks, and good luck studying!
