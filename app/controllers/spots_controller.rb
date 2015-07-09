@@ -30,7 +30,7 @@ class SpotsController < ApplicationController
 
   def update
     @spot = Spot.find(params[:id])
-    if (current_user && current_user.id == @spot.id) || (current_user && current_user.admin?)
+    if (current_user && current_user.id == @spot.user_id) || (current_user && current_user.admin?)
       if @spot.update(spot_params)
         flash[:success] = "Spot updated."
         redirect_to spot_path(@spot)

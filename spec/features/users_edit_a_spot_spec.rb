@@ -20,9 +20,6 @@ feature "Users edit a spot" do
     click_link "#{spot.name}"
     click_link "Edit spot"
 
-    save_and_open_page
-    binding.pry
-
     fill_in 'State', with: "MA"
     fill_in 'City', with: "Boston"
     fill_in 'Zip code', with: "01456"
@@ -105,8 +102,10 @@ feature "Users edit a spot" do
     fill_in 'Phone', with: "1434321434"
     click_button("Edit spot")
 
-    expect(page).to have_content("33 Harrison Ave")
-    expect(page).to have_content("Launch Academy")
+    expect(page).to have_content("You don't have permission to edit that spot.")
+    expect(page).to have_content(spot.state)
+    expect(page).to have_content(spot.name)
+    expect(page).to have_content("Reviews!")
   end
 
   scenario 'I am an admin and I want to edit a spot' do
