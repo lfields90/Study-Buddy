@@ -14,7 +14,6 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'rails_12factor'
 gem 'kaminari'
-gem 'carrierwave'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
