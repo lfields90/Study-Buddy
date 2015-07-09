@@ -72,19 +72,19 @@ function revoke(n) {
           vote[n].innerHTML = (votes += 1);
           $.ajax({
             type: "PATCH",
-            url:  "/spots/" + spots[n].innerHTML + "/reviews/"
-            + reviews[n].innerHTML + "/upvote"
+            url:  "/spots/" + spots[n].innerHTML + "/reviews/" +
+            reviews[n].innerHTML + "/upvote"
           });
         } else {
-          var spots = document.getElementsByClassName("spot_number");
-          var reviews = document.getElementsByClassName("review_number");
-          var vote = document.getElementsByClassName("votes");
-          var votes = (parseInt(vote[n].innerHTML));
+          spots = document.getElementsByClassName("spot_number");
+          reviews = document.getElementsByClassName("review_number");
+          vote = document.getElementsByClassName("votes");
+          votes = (parseInt(vote[n].innerHTML));
           vote[n].innerHTML = (votes -= 1);
           $.ajax({
             type: "PATCH",
-            url:  "/spots/" + spots[n].innerHTML + "/reviews/"
-            + reviews[n].innerHTML + "/downvote"
+            url:  "/spots/" + spots[n].innerHTML + "/reviews/" +
+            reviews[n].innerHTML + "/downvote"
         });
         }
     },
