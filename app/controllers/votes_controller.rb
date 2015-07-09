@@ -2,9 +2,9 @@ class VotesController < ApplicationController
   def create
     @vote = Vote.new(data_params)
     if @vote.save
-      render json: {statusText: "We Won!"}
+      render json: { statusText: "We Won!" }
     else
-      render json: {statusText: "Boooo!"}
+      render json: { statusText: "Boooo!" }
     end
   end
 
@@ -13,9 +13,9 @@ class VotesController < ApplicationController
     @vote.each do |vote|
       demo = vote.vote_value
       if vote.destroy
-        render json: {statusText: "#{demo}"}
+        render json: { statusText: "#{demo}" }
       else
-        render json: {statusText: "Boooo!"}
+        render json: { statusText: "Boooo!" }
       end
     end
   end
@@ -23,6 +23,6 @@ class VotesController < ApplicationController
   private
 
   def data_params
-     params.require(:vote).permit(:review_id, :user_id, :spot_id, :vote_value)
+    params.require(:vote).permit(:review_id, :user_id, :spot_id, :vote_value)
   end
 end

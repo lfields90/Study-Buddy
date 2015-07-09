@@ -13,26 +13,33 @@
       <span><b>Phone:</b> <%= @spot.phone %></span>
     </div>
     <%= link_to "Edit spot", edit_spot_path, class: "button small radius" %>
-    <%= link_to "Delete spot", spot_path(@spot), method: :delete, class: "button small radius" %>
+    <%= link_to "Delete spot", spot_path(@spot),
+    method: :delete, class: "button small radius" %>
 
     <h2>Reviews!</h2>
     <% x = 0 %>
-<% if current_user == nil %>
-
-<% else %>
-        <div id='user_number' style="visibility: collapse"><%= current_user.id %></div>
-<% end %>
+    <% if current_user == nil %>
+    <% else %>
+      <div id='user_number' style="visibility: collapse">
+        <%= current_user.id %>
+      </div>
+    <% end %>
     <% @reviews.each do |review| %>
-        <div class='spot_number' style="visibility: collapse"><%= @spot.id %></div>
-        <div class='review_number' style="visibility: collapse"><%= review.id %></div>
-        <div class="panel">
-          <span><b>Rating:</b> <%= review.rating %></span><br />
-          <p><b>Review:</b> <%= review.body %></p>
-          <%= link_to "Edit review", edit_spot_review_path(@spot, review), class: "button tiny radius" %>
-          <%= link_to "Delete review", spot_review_path(@spot, review), method: :delete, class: "button tiny radius" %>
-
-        <p>Total votes: <strong class='votes'><%= review.vote_count %></strong></p>
-
+      <div class='spot_number' style="visibility: collapse">
+        <%= @spot.id %>
+      </div>
+      <div class='review_number' style="visibility: collapse">
+        <%= review.id %>
+      </div>
+      <div class="panel">
+        <span><b>Rating:</b> <%= review.rating %></span><br />
+        <p><b>Review:</b> <%= review.body %></p>
+        <%= link_to "Edit review", edit_spot_review_path(@spot, review),
+        class: "button tiny radius" %>
+        <%= link_to "Delete review", spot_review_path(@spot, review),
+        method: :delete, class: "button tiny radius" %>
+        <p>Total votes: <strong class='votes'>
+        <%= review.vote_count %></strong></p>
       <% if @voted.include?(review.id) %>
         <button style="display: block" class='revoke' onclick = revoke(<%= x %>)>Revoke</button>
         <button style="display: none" class='upvote' onclick = vote(<%= x %>,<%= 1 %>)>Upvote</button>
@@ -44,9 +51,7 @@
       <% end %>
       </div>
       <% x += 1 %>
-
     <% end %>
-
     <%= paginate @reviews %>
     <%= link_to "Home", spots_path, class: "button right small radius" %>
     <%= link_to "Add a Review", new_spot_review_path(@spot), class: "button left small radius" %><br />
