@@ -28,8 +28,8 @@ function vote(n, yesno) {
   vote[n].innerHTML = (votes += yesno);
   $.ajax({
     type: "PATCH",
-    url:  "/spots/" + spots[n].innerHTML + "/reviews/" + reviews[n].innerHTML
-    + "/downvote"
+    url:  "/spots/" + spots[n].innerHTML + "/reviews/" + reviews[n].innerHTML +
+    "/downvote"
   });
   var data = {
     "user_id": parseInt(document.getElementById("user_number").innerHTML),
