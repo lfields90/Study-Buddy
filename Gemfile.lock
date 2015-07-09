@@ -80,10 +80,16 @@ GEM
     docile (1.1.5)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
+<<<<<<< HEAD
     dotenv (2.0.2)
     dotenv-rails (2.0.2)
       dotenv (= 2.0.2)
       railties (~> 4.0)
+=======
+    email_spec (1.6.0)
+      launchy (~> 2.1)
+      mail (~> 2.2)
+>>>>>>> master
     erubis (2.7.0)
     excon (0.45.3)
     execjs (2.5.2)
@@ -237,6 +243,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    puma (2.11.3)
+      rack (>= 1.1, < 2.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -259,6 +267,11 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.3)
     railties (4.2.2)
       actionpack (= 4.2.2)
       activesupport (= 4.2.2)
@@ -349,7 +362,11 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   coveralls
   devise
+<<<<<<< HEAD
   dotenv-rails
+=======
+  email_spec
+>>>>>>> master
   factory_girl_rails
   faker
   fog
@@ -360,7 +377,9 @@ DEPENDENCIES
   launchy
   pg
   pry-rails
+  puma
   rails (= 4.2.2)
+  rails_12factor
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

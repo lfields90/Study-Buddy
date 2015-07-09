@@ -2,6 +2,7 @@ require "rails_helper"
 
 feature "adding review" do
   before :each do
+
     user = FactoryGirl.create(:user)
     spot = FactoryGirl.create(:spot)
 
@@ -23,6 +24,7 @@ feature "adding review" do
 
     expect(page).to have_content("Review successfully added")
     expect(page).to have_content("Great study spot")
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario "users adds a new review with no rating" do

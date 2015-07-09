@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.spot_id = @spot.id
     if @review.save
+      ReviewMailer.new_review(@review).deliver_now
       flash[:success] = "Review successfully added"
       redirect_to spot_path(@spot)
     else
@@ -40,9 +41,14 @@ class ReviewsController < ApplicationController
   def destroy
     @spot = Spot.find(params[:spot_id])
     @review = Review.find(params[:id])
-    @review.destroy
-    flash[:notice] = "Review destroyed"
-    redirect_to spots_path(@spot)
+    if current_user.try(:admin?)
+      @review.destroy
+      flash[:notice] = "Review destroyed"
+      redirect_to spots_path(@spot)
+    else
+      flash[:notice] = "You don't have permission to destroy that review."
+      redirect_to spot_path(@spot)
+    end
   end
 
   private
