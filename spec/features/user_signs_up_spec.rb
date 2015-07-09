@@ -24,7 +24,6 @@ feature 'user registers', %Q{
 
     expect(page).to have_content('Welcome! You have signed up successfully.')
     expect(page).to have_content('Sign Out')
-    binding.pry
     expect(User.first.profile_photo.file.filename).to eq("example_photo.jpg")
   end
 
