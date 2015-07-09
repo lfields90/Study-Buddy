@@ -10,4 +10,14 @@ describe Spot do
   it { should validate_presence_of(:state) }
   it { should validate_presence_of(:zip_code) }
   it { should validate_length_of(:zip_code) }
+
+  describe ".search" do
+    context 'using the search bar' do
+      spot = FactoryGirl.create(:spot, city: 'Boston')
+      it "returns matching results" do
+        results = Spot.search(spot.city)
+        expect(spot.city).to eq(Spot.where(city: "Boston"))
+      end
+    end
+  end
 end
