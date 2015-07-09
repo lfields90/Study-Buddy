@@ -12,6 +12,8 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'kaminari'
 gem 'carrierwave'
+gem 'fog'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
