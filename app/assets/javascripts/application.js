@@ -27,8 +27,9 @@ function vote(n, yesno) {
   var votes = parseInt(vote[n].innerHTML);
   vote[n].innerHTML = (votes += yesno);
   $.ajax({
-    type: 'PATCH',
-    url:  "/spots/" + spots[n].innerHTML + "/reviews/" + reviews[n].innerHTML + "/downvote"
+    type: "PATCH",
+    url:  "/spots/" + spots[n].innerHTML + "/reviews/" + reviews[n].innerHTML
+    + "/downvote"
   });
   var data = {
     "user_id": parseInt(document.getElementById("user_number").innerHTML),
@@ -37,7 +38,7 @@ function vote(n, yesno) {
     "vote_value": yesno
   };
   $.ajax({
-    type: 'POST',
+    type: "POST",
     url:  "/votes",
     contentType: "application/json",
         dataType: "json",
@@ -52,14 +53,14 @@ function vote(n, yesno) {
   revoke[n].style.display = "inline-block";
   upvote[n].style.display = "none";
   downvote[n].style.display = "none";
-};
+}
 
 
 
 function revoke(n) {
   var reviews = document.getElementsByClassName("review_number");
   $.ajax({
-    type: 'DELETE',
+    type: "DELETE",
     url:  "/votes/" + reviews[n].innerHTML,
     success: function(response) {
         console.log(response);
@@ -70,8 +71,9 @@ function revoke(n) {
           var votes = parseInt(vote[n].innerHTML);
           vote[n].innerHTML = (votes += 1);
           $.ajax({
-            type: 'PATCH',
-            url:  "/spots/" + spots[n].innerHTML + "/reviews/" + reviews[n].innerHTML + "/upvote"
+            type: "PATCH",
+            url:  "/spots/" + spots[n].innerHTML + "/reviews/"
+            + reviews[n].innerHTML + "/upvote"
           });
         } else {
           var spots = document.getElementsByClassName("spot_number");
@@ -80,8 +82,9 @@ function revoke(n) {
           var votes = (parseInt(vote[n].innerHTML));
           vote[n].innerHTML = (votes -= 1);
           $.ajax({
-            type: 'PATCH',
-            url:  "/spots/" + spots[n].innerHTML + "/reviews/" + reviews[n].innerHTML + "/downvote"
+            type: "PATCH",
+            url:  "/spots/" + spots[n].innerHTML + "/reviews/"
+            + reviews[n].innerHTML + "/downvote"
         });
         }
     },
@@ -95,4 +98,4 @@ function revoke(n) {
   revokes[n].style.display = "none";
   upvote[n].style.display = "inline-block";
   downvote[n].style.display = "inline-block";
-};
+}
