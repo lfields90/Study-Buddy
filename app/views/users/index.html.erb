@@ -1,0 +1,11 @@
+<h1>Users</h1>
+ <% @users.each do |user| %>
+   <div class="panel">
+     <p><%= user.email %></p>
+     <%= link_to "Delete user", user_path(user),
+     method: :delete, class: "button tiny radius" %>
+
+   </div>
+ <% end %>
+
+<%= paginate @users %>

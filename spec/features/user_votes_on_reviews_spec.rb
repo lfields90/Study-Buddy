@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User reads and votes on reviews", js: true do
+feature "User reads and votes on reviews" do
 
   # As a user I want to be able to read other reviews and vote on them
   # so that others know if the review is good.
@@ -8,7 +8,7 @@ feature "User reads and votes on reviews", js: true do
   # - User can upvote or downvote another user's review.
   # - User can see all reviews for a spot.
 
-  scenario 'I want to endorse another review' do
+  scenario 'I want to endorse another review', js: true do
 
     user = FactoryGirl.create(:user)
     spot = FactoryGirl.create(:spot, user: user)
@@ -30,4 +30,5 @@ feature "User reads and votes on reviews", js: true do
     expect(page).to have_content("Total votes: 1")
 
   end
+
 end
