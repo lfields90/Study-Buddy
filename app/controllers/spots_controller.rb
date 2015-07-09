@@ -33,12 +33,18 @@ class SpotsController < ApplicationController
 
   def update
     @spot = Spot.find(params[:id])
-    if @spot.update(spot_params)
-      flash[:success] = "Spot updated."
-      redirect_to spot_path(@spot)
+    if (current_user && current_user.id == @spot.user_id) ||
+        (current_user && current_user.admin?)
+      if @spot.update(spot_params)
+        flash[:success] = "Spot updated."
+        redirect_to spot_path(@spot)
+      else
+        flash[:alert] = @spot.errors.full_messages.join(".  ")
+        render :edit
+      end
     else
-      flash[:alert] = @spot.errors.full_messages.join(".  ")
-      render :edit
+      flash[:alert] = "You don't have permission to edit that spot."
+      redirect_to spot_path(@spot)
     end
   end
 
@@ -49,7 +55,7 @@ class SpotsController < ApplicationController
       flash[:success] = "Spot destroyed"
       redirect_to spots_path
     else
-      flash[:notice] = "You don't have permission to destroy that spot."
+      flash[:alert] = "You don't have permission to destroy that spot."
       redirect_to spot_path(@spot)
     end
   end

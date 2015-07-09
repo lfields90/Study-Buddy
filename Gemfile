@@ -26,14 +26,14 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'pry-rails'
-  # gem 'selenium-webdriver'
-  #gem 'webrat'
 end
 
 group :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'poltergeist'
+  gem 'email_spec'
+
 end
 
 group :production do
