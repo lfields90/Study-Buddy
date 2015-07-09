@@ -15,5 +15,9 @@ rake db:seed</code></pre>
 To start a server, run:
 <pre><code>rails s</code></pre>
 
+## Testing
+
 To run the test suite, run:
 <pre><code>rake spec</code></pre>
+
+That's it! Thanks, and good luck studying!
