@@ -8,10 +8,8 @@ feature "Users edit their profile" do
   # User can edit their profile.
   # User cannot update others profiles
 
-
   scenario 'I want to edit my profile' do
     user = FactoryGirl.create(:user)
-
 
     visit new_user_session_path
 
