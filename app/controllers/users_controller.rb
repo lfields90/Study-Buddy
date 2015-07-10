@@ -4,7 +4,7 @@ class UsersController < ApplicationController
       @users = User.order('created_at DESC').page params[:page]
     else
       flash[:alert] = "Access denied! XD"
-      redirect_to root_path
+      redirect_to spots_path
     end
   end
 
