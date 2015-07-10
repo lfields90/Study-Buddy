@@ -21,6 +21,12 @@ h2 {
   margin-bottom: 10px;
 }
 
+img {
+  height: 45px;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
 .button.tiny.radius {
   background-color: $review-button-color;
 }
@@ -32,14 +38,16 @@ h2 {
 // Footer C
 .footer {
   //background-color: team green;
-  padding: 2rem 4rem;
+  padding: 6rem 4rem;
   text-align: center;
   color: black;
+  bottom: 0;
 }
 
 .footer .columns {
      border-left: 1px solid scale-color(#fff, $lightness: -30%);
-     min-height: 200px;
+
+     height: 200px;
 }
 
 
