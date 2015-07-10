@@ -68,7 +68,8 @@ class ReviewsController < ApplicationController
   def destroy
     @spot = Spot.find(params[:spot_id])
     @review = Review.find(params[:id])
-    if current_user.try(:admin?)
+    if (current_user && current_user.id == @review.user_id) ||
+        (current_user && current_user.admin?)
       @review.destroy
       flash[:notice] = "Review deleted"
       redirect_to spots_path(@spot)

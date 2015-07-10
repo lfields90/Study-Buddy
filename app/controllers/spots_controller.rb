@@ -60,7 +60,8 @@ class SpotsController < ApplicationController
 
   def destroy
     @spot = Spot.find(params[:id])
-    if current_user.try(:admin?)
+    if (current_user && current_user.id == @spot.user_id) ||
+        (current_user && current_user.admin?)
       @spot.destroy
       flash[:success] = "Spot deleted"
       redirect_to spots_path
