@@ -35,21 +35,18 @@ img {
   max-width: 1400px;
 }
 
-// Footer C
 .footer {
-  //background-color: team green;
   padding: 6rem 4rem;
   text-align: center;
   color: black;
-  bottom: 0;
+  position:relative;
+  bottom:0;
 }
 
 .footer .columns {
-     border-left: 1px solid scale-color(#fff, $lightness: -30%);
-
-     height: 200px;
+ border-left: 1px solid scale-color(#fff, $lightness: -30%);
+ height: 200px;
 }
-
 
 .footer-links {
   list-style-type: none;
