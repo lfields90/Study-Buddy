@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="large-12 large-centered columns text-center">
+    <h1>User Profile</h1>
+    <div class="panel text-center">
+      <span><b>Username:</b> <%= @user.username %></span><br />
+      <span><b>First Name:</b> <%= @user.first_name %></span><br />
+      <span><b>Last Name:</b> <%= @user.last_name %></span><br />
+      <span><b>email:</b> <%= @user.email %></span><br />
+    </div>
+    <% if current_user.id == @user.id %>
+      <%= link_to "Edit Profile", edit_user_path(@user), class: "button small radius" %>
+    <% end %>
+    <%= link_to "Back to site", spots_path, class: "button small radius" %>
+  </div>
+</div>
