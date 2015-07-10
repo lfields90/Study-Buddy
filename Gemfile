@@ -30,7 +30,10 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'database_cleaner'
+  gem 'poltergeist'
   gem 'email_spec'
+
 end
 
 group :production do

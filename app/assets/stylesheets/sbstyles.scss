@@ -1,6 +1,9 @@
 $primary-orange: #df7401;
 $secondary-orange: #faac58;
 $review-button-color: #a4a4a4;
+$primary-green: #04b431;
+$downvote-red: #f04124;
+
 
 body {
   background-image: image-url("background1.jpg");
@@ -37,4 +40,15 @@ h2 {
       height: 1.85rem;
     }
   }
+
+.revoke.button.tiny.radius {
+  background-color: $primary-orange;
+}
+
+.upvote.button.tiny.radius {
+  background-color: $primary-green;
+}
+
+.downvote.button.tiny.radius {
+  background-color: $downvote-red;
 }
