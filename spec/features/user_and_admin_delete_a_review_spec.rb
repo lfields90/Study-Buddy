@@ -43,5 +43,4 @@ feature "Delete review" do
     click_link "Delete review"
     expect(page).to have_content("Review destroyed")
   end
-
 end

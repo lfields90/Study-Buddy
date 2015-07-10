@@ -7,7 +7,8 @@ FactoryGirl.define do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
     username { Faker::Internet.user_name }
-
+    profile_photo { Faker::Avatar.image("my-own-slug", "50x50", "jpg") }
+    
     factory :admin do
       admin true
     end
