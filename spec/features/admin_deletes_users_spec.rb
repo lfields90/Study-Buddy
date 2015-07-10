@@ -21,4 +21,3 @@ feature "Admin deletes users" do
     expect(page).to have_content("User destroyed")
   end
 end
-

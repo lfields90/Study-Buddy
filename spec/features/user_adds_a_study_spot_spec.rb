@@ -42,4 +42,3 @@ feature "adding spot" do
     expect(page).to have_content("City can't be blank")
   end
 end
-
