@@ -80,4 +80,17 @@ feature "User reads and votes on reviews" do
     expect(page).to have_content("Total votes: 0")
 
   end
+
+  scenario 'As a non-signed in user I cannot vote', js: true do
+
+    user = FactoryGirl.create(:user)
+    spot = FactoryGirl.create(:spot, user: user)
+    FactoryGirl.create(:review, spot: spot)
+
+    visit spot_path(spot)
+
+    expect(page).to have_content("Total votes: 0")
+    expect(page).to_not have_content("Upvote")
+    expect(page).to_not have_content("Revoke")
+  end
 end

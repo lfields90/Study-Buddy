@@ -26,11 +26,20 @@ function vote(n, yesno) {
   var vote = document.getElementsByClassName("votes");
   var votes = parseInt(vote[n].innerHTML);
   vote[n].innerHTML = (votes += yesno);
-  $.ajax({
-    type: "PATCH",
-    url:  "/spots/" + spots[n].innerHTML + "/reviews/" + reviews[n].innerHTML +
-    "/downvote"
-  });
+  if (yesno < 0) {
+    $.ajax({
+      type: "PATCH",
+      url:  "/spots/" + spots[n].innerHTML + "/reviews/" + reviews[n].innerHTML +
+      "/downvote"
+    });
+  } else {
+    $.ajax({
+      type: "PATCH",
+      url:  "/spots/" + spots[n].innerHTML + "/reviews/" + reviews[n].innerHTML +
+      "/upvote"
+    });
+  };
+
   var data = {
     "user_id": parseInt(document.getElementById("user_number").innerHTML),
     "review_id": parseInt(reviews[n].innerHTML),

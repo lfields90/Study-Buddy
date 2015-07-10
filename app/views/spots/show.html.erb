@@ -18,8 +18,7 @@
 
     <h2>Reviews!</h2>
     <% x = 0 %>
-    <% if current_user == nil %>
-    <% else %>
+    <% if current_user != nil %>
       <div id='user_number' style="visibility: collapse">
         <%= current_user.id %>
       </div>
@@ -40,15 +39,17 @@
         method: :delete, class: "button tiny radius" %>
         <p>Total votes: <strong class='votes'>
         <%= review.vote_count %></strong></p>
-      <% if @voted.include?(review.id) %>
-        <button style="display: block" class='revoke button tiny radius' onclick = revoke(<%= x %>)>Revoke</button>
-        <button style="display: none" class='upvote button tiny radius' onclick = vote(<%= x %>,<%= 1 %>)>Upvote</button>
-        <button style="display: none" class='downvote button tiny radius' onclick = vote(<%= x %>,<%= -1 %>)>Downvote</button>
-      <% else %>
-        <button style="display: none" class='revoke button tiny radius' onclick = revoke(<%= x %>)>Revoke</button>
-        <button style="display: inline-block" class='upvote button tiny radius' onclick = vote(<%= x %>,<%= 1 %>)>Upvote</button>
-        <button style="display: inline-block" class='downvote button tiny radius' onclick = vote(<%= x %>,<%= -1 %>)>Downvote</button>
-      <% end %>
+        <% if current_user != nil %>
+          <% if @voted.include?(review.id) %>
+            <button style="display: block" class='revoke button tiny radius' onclick = revoke(<%= x %>)>Revoke</button>
+            <button style="display: none" class='upvote button tiny radius' onclick = vote(<%= x %>,<%= 1 %>)>Upvote</button>
+            <button style="display: none" class='downvote button tiny radius' onclick = vote(<%= x %>,<%= -1 %>)>Downvote</button>
+          <% else %>
+            <button style="display: none" class='revoke button tiny radius' onclick = revoke(<%= x %>)>Revoke</button>
+            <button style="display: inline-block" class='upvote button tiny radius' onclick = vote(<%= x %>,<%= 1 %>)>Upvote</button>
+            <button style="display: inline-block" class='downvote button tiny radius' onclick = vote(<%= x %>,<%= -1 %>)>Downvote</button>
+          <% end %>
+        <% end %>
       </div>
       <% x += 1 %>
     <% end %>
