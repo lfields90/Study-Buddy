@@ -30,7 +30,6 @@ FactoryGirl.define do
   factory :review do
     body { Faker::Lorem.sentence(3) }
     rating { rand(1..5) }
-
     spot
     user
   end

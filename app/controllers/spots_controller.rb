@@ -20,6 +20,9 @@ class SpotsController < ApplicationController
   end
 
   def show
+    @voted = []
+    @votes = Vote.where(user_id: current_user)
+    @votes.each { |vote| @voted << vote.review_id }
     @spot = Spot.find(params[:id])
     @reviews = @spot.reviews.order('created_at DESC').page params[:page]
   end
