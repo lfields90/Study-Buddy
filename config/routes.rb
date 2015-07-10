@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :votes, only: [:create, :destroy]
-  resources :users, only: [:index, :destroy]
+  resources :users, only: [:index, :destroy, :show, :update, :edit]
 
   as :user do
     get 'spots', to: 'spots_path', as: :user_root
