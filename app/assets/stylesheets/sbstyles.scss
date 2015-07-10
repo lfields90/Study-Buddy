@@ -4,6 +4,7 @@ $review-button-color: #a4a4a4;
 $primary-green: #04b431;
 $secondary-green: #088a29;
 $tertiary-green: #0b6121;
+$downvote-red: #f04124;
 
 body {
   background-image: image-url("background1.jpg");
@@ -69,4 +70,30 @@ h2 {
 
 .text p {
   font-size: 1.5em;
+}
+
+.has-form {
+  min-width: 14rem; // adjust width here
+  top: 0; // adjust distance from left here
+
+  @media only screen and (max-width: 40em) {
+    min-width: 10rem;
+    top: 0.5rem;
+
+    .button {
+      height: 1.85rem;
+    }
+  }
+}
+
+.revoke.button.tiny.radius {
+  background-color: $primary-orange;
+}
+
+.upvote.button.tiny.radius {
+  background-color: $primary-green;
+}
+
+.downvote.button.tiny.radius {
+  background-color: $downvote-red;
 }

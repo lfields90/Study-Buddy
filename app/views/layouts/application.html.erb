@@ -9,21 +9,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <nav class="top-bar">
-    <!-- <ul class="title-area">
-      <li class="name">
-        <%= image_tag("logo.jpg", height: "45", width: "45") %>
-      </li>
-    </ul> -->
     <ul class="title-area">
       <li class="name">
         <h1><a href="/">StudyBuddy</a></h1>
       </li>
     </ul>
-
     <section class="top-bar-section">
       <ul class="right">
+        <li class="has-form">
+          <form>
+            <div class="row collapse">
+              <div class="large-8 small-9 columns">
+                <%= form_tag spots_path, :method => "get", id: "search-form" do %>
+                <%= text_field_tag :search, params[:search], required: true, placeholder: "Search Spots" %>
+              </div>
+              <div class="large-4 small-3 columns">
+                <button href="#" class="button tiny" type="submit">Search</button>
+                <% end %>
+              </div>
+            </div>
+          </form>
+        </li>
         <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <li><%= link_to current_user.username, root_path %></li>
@@ -31,16 +38,16 @@
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
-      </ul>
-    </section>
-  </nav>
+        </ul>
+      </section>
+    </nav>
 
-  <%- flash.each do |key, value| -%>
-    <div class="flash <%= key %> alert-box" data-alert>
-      <%= value %>
-      <a href="#" class="close">&times;</a>
-    </div>
-  <%- end -%>
+    <%- flash.each do |key, value| -%>
+      <div class="flash <%= key %> alert-box" data-alert>
+        <%= value %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <%- end -%>
 
   <div class="row">
     <div class="small-12 columns">

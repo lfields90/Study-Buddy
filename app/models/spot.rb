@@ -12,4 +12,17 @@ class Spot < ActiveRecord::Base
   validates :zip_code, presence: true, length: { is: 5 }
   validates :phone, length: { minimum: 10 }
   validates :user, presence: true
+
+  def self.search(search)
+    where("name ILIKE ?
+          OR description ILIKE ?
+          OR address ILIKE ?
+          OR zip_code ILIKE ?
+          OR city ILIKE ?
+          OR state ILIKE ?
+          OR category ILIKE ? ",
+          "%#{search}%", "%#{search}%", "%#{search}%",
+          "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"
+        )
+  end
 end
