@@ -12,7 +12,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'foundation-rails'
-gem 'rails_12factor'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'fog'
@@ -38,4 +37,5 @@ end
 
 group :production do
   gem 'puma'
+  gem 'rails_12factor'
 end

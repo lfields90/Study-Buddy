@@ -24,7 +24,7 @@ feature 'user registers', %Q{
     attach_file "Profile Photo",
       "#{Rails.root}/spec/support/images/example_photo.jpg"
     click_button 'Sign up'
-binding.pry
+
     expect(User.first.profile_photo.file.filename).to eq("example_photo.jpg")
     expect(page).to have_content('Welcome! You have signed up successfully.')
     expect(page).to have_content('Sign Out')
