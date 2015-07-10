@@ -20,6 +20,27 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def upvote
+    @review = Review.find(params[:id])
+    @review.vote_count += 1
+    @review.save
+    if @review.save
+      render json: { status: "good" }
+    else
+      render json: { status: "bad" }
+    end
+  end
+
+  def downvote
+    @review = Review.find(params[:id])
+    @review.vote_count -= 1
+    if @review.save
+      render json: { status: "good" }
+    else
+      render json: { status: "bad" }
+    end
+  end
+
   def edit
     @spot = Spot.find params[:spot_id]
     @review = Review.find(params[:id])
@@ -49,10 +70,10 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     if current_user.try(:admin?)
       @review.destroy
-      flash[:notice] = "Review destroyed"
+      flash[:notice] = "Review deleted"
       redirect_to spots_path(@spot)
     else
-      flash[:notice] = "You don't have permission to destroy that review."
+      flash[:alert] = "You don't have permission to delete that review."
       redirect_to spot_path(@spot)
     end
   end

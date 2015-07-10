@@ -1,6 +1,11 @@
 class SpotsController < ApplicationController
   def index
-    @spots = Spot.order('created_at DESC').page params[:page]
+    if params[:search]
+      @spots = Spot.search(params[:search]).order("created_at DESC")
+      @spots = @spots.page(params[:page])
+    else
+      @spots = Spot.order("created_at DESC").page params[:page]
+    end
   end
 
   def new
@@ -20,8 +25,16 @@ class SpotsController < ApplicationController
   end
 
   def show
+    @voted = []
+    @votes = Vote.where(user_id: current_user)
+    @votes.each { |vote| @voted << vote.review_id }
     @spot = Spot.find(params[:id])
-    @reviews = @spot.reviews.order('created_at DESC').page params[:page]
+    @reviews = @spot.reviews.order('created_at DESC').page(params[:page])
+    if params[:search]
+      redirect_to spots_path(search: params[:search])
+      @spots = Spot.search(params[:search]).order("created_at DESC")
+      @spots = @spots.page(params[:page])
+    end
   end
 
   def edit
@@ -49,10 +62,10 @@ class SpotsController < ApplicationController
     @spot = Spot.find(params[:id])
     if current_user.try(:admin?)
       @spot.destroy
-      flash[:success] = "Spot destroyed"
+      flash[:success] = "Spot deleted"
       redirect_to spots_path
     else
-      flash[:alert] = "You don't have permission to destroy that spot."
+      flash[:alert] = "You don't have permission to delete that spot."
       redirect_to spot_path(@spot)
     end
   end

@@ -1,6 +1,10 @@
 $primary-orange: #df7401;
 $secondary-orange: #faac58;
 $review-button-color: #a4a4a4;
+$primary-green: #04b431;
+$secondary-green: #088a29;
+$tertiary-green: #0b6121;
+$downvote-red: #f04124;
 
 body {
   background-image: image-url("background1.jpg");
@@ -19,8 +23,77 @@ h2 {
 
 .top-bar {
   margin-bottom: 10px;
+  box-shadow: 0 1px $tertiary-green;
+  background: linear-gradient($primary-green, $secondary-green);
 }
 
 .button.tiny.radius {
   background-color: $review-button-color;
+}
+
+.bg {
+  height: auto;
+  left: 0;
+  min-height: 100%;
+  min-width: 1024px;
+  position: fixed;
+  top: 56px;
+  width: 100%;
+}
+
+.landing-wrapper {
+  display: block;
+  height: 400px;
+  left: 0;
+  margin: auto;
+  top: 56px;
+}
+
+.block {
+  background: #ffffff;
+  height: 100%;
+  left: 0;
+  opacity: 0.5;
+  position: absolute;
+  top: 50px;
+  width: 100%;
+}
+
+.text {
+  height: 100%;
+  left: 0;
+  padding: 40px;
+  position: absolute;
+  top: 50px;
+  width: 100%;
+}
+
+.text p {
+  font-size: 1.5em;
+}
+
+.has-form {
+  min-width: 14rem; // adjust width here
+  top: 0; // adjust distance from left here
+
+  @media only screen and (max-width: 40em) {
+    min-width: 10rem;
+    top: 0.5rem;
+
+    .button {
+      height: 1.85rem;
+    }
+  }
+}
+
+.revoke.button.tiny.radius {
+  background-color: $primary-orange;
+}
+
+.upvote.button.tiny.radius {
+  background-color: $primary-green;
+}
+
+.downvote.button.tiny.radius {
+  background-color: $downvote-red;
 }

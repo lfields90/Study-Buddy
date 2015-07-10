@@ -9,5 +9,12 @@
     </div>
   <% end %>
 
-<%= link_to "Add a spot", new_spot_path, class: "button small radius" %>
 <%= paginate @spots %>
+
+<% if @spots.present? %>
+  <%= render @spots %>
+<% else %>
+  <p>There are no spots containing the infomation given in query.</p>
+<% end %>
+
+<%= link_to "Add a spot", new_spot_path, class: "button small radius" %>
