@@ -28,6 +28,19 @@ h2 {
   background-color: $review-button-color;
 }
 
+.has-form {
+  min-width: 14rem; // adjust width here
+  top: 0; // adjust distance from left here
+
+  @media only screen and (max-width: 40em) {
+    min-width: 10rem;
+    top: 0.5rem;
+
+    .button {
+      height: 1.85rem;
+    }
+  }
+
 .revoke.button.tiny.radius {
   background-color: $primary-orange;
 }

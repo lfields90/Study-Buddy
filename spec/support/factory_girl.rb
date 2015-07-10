@@ -23,7 +23,6 @@ FactoryGirl.define do
     zip_code "02125"
     website_url { Faker::Internet.url }
     phone { Faker::Number.number(10) }
-
     user
   end
 

@@ -1,6 +1,11 @@
 class SpotsController < ApplicationController
   def index
-    @spots = Spot.order('created_at DESC').page params[:page]
+    if params[:search]
+      @spots = Spot.search(params[:search]).order("created_at DESC")
+      @spots = @spots.page(params[:page])
+    else
+      @spots = Spot.order("created_at DESC").page params[:page]
+    end
   end
 
   def new
@@ -24,7 +29,12 @@ class SpotsController < ApplicationController
     @votes = Vote.where(user_id: current_user)
     @votes.each { |vote| @voted << vote.review_id }
     @spot = Spot.find(params[:id])
-    @reviews = @spot.reviews.order('created_at DESC').page params[:page]
+    @reviews = @spot.reviews.order('created_at DESC').page(params[:page])
+    if params[:search]
+      redirect_to spots_path(search: params[:search])
+      @spots = Spot.search(params[:search]).order("created_at DESC")
+      @spots = @spots.page(params[:page])
+    end
   end
 
   def edit
