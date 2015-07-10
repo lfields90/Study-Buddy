@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "spots#index"
+  root "homes#index"
   devise_for :users
 
   resources :spots do
@@ -13,4 +13,8 @@ Rails.application.routes.draw do
 
   resources :votes, only: [:create, :destroy]
   resources :users, only: [:index, :destroy]
+
+  as :user do
+    get 'spots', to: 'spots_path', as: :user_root
+  end
 end

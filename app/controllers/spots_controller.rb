@@ -62,10 +62,10 @@ class SpotsController < ApplicationController
     @spot = Spot.find(params[:id])
     if current_user.try(:admin?)
       @spot.destroy
-      flash[:success] = "Spot destroyed"
+      flash[:success] = "Spot deleted"
       redirect_to spots_path
     else
-      flash[:alert] = "You don't have permission to destroy that spot."
+      flash[:alert] = "You don't have permission to delete that spot."
       redirect_to spot_path(@spot)
     end
   end

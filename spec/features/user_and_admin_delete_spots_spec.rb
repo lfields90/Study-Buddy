@@ -17,7 +17,7 @@ feature "Admin deletes spots" do
 
     visit spot_path(spot)
     click_link "Delete spot"
-    expect(page).to have_content("Spot destroyed")
+    expect(page).to have_content("Spot deleted")
   end
 
   scenario 'I want to delete a study spot and am not an admin' do
@@ -36,7 +36,7 @@ feature "Admin deletes spots" do
     visit spot_path(spot)
     click_link "Delete spot"
     expect(page).to have_content(
-      "You don't have permission to destroy that spot."
+      "You don't have permission to delete that spot."
     )
   end
 end
