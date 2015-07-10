@@ -1,4 +1,11 @@
-<p>
-  Modify me in `app/views/homes/index.html.erb` or change the root directive in
-  `config/routes.rb`
-</p>
+<%= image_tag("landing_page_bg3.jpg", class: "bg") %>
+<div class="row">
+<div class="landing_wrapper column">
+  <div class="block"></div>
+    <div class="text">
+    <h1 class="text-center">We saved a spot for you</h1>
+  <p class="text-center">We know how difficult it can be to find a reliable place to study with all the features you want -- Wi-Fi, plenty of outlets, comfy chairs, etc. StudyBuddy makes it easier by showing you just how perfectly each spot will meet your needs via user-submitted spots and reviews. </p>
+  <h1 class="text-center"><%= link_to("Hit the books!", spots_path) %></h1>
+</div>
+</div>
+</div>

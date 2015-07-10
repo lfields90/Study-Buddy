@@ -18,6 +18,6 @@ feature "Admin deletes users" do
 
     visit users_path
     first(:link, "Delete user").click
-    expect(page).to have_content("User destroyed")
+    expect(page).to have_content("User deleted")
   end
 end

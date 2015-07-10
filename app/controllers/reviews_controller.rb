@@ -49,10 +49,10 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     if current_user.try(:admin?)
       @review.destroy
-      flash[:notice] = "Review destroyed"
+      flash[:notice] = "Review deleted"
       redirect_to spots_path(@spot)
     else
-      flash[:notice] = "You don't have permission to destroy that review."
+      flash[:alert] = "You don't have permission to delete that review."
       redirect_to spot_path(@spot)
     end
   end

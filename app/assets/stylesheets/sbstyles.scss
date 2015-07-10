@@ -1,6 +1,9 @@
 $primary-orange: #df7401;
 $secondary-orange: #faac58;
 $review-button-color: #a4a4a4;
+$primary-green: #04b431;
+$secondary-green: #088a29;
+$tertiary-green: #0b6121;
 
 body {
   background-image: image-url("background1.jpg");
@@ -19,8 +22,51 @@ h2 {
 
 .top-bar {
   margin-bottom: 10px;
+  box-shadow: 0 1px $tertiary-green;
+  background: linear-gradient($primary-green, $secondary-green);
 }
 
 .button.tiny.radius {
   background-color: $review-button-color;
+}
+
+.bg {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 56px;
+  left: 0;
+}
+
+.landing_wrapper {
+  display: block;
+  margin: auto;
+  top: 56px;
+  left: 0;
+  height: 400px;
+}
+
+.block {
+  background: white;
+  opacity: 0.5;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.text {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 40px;
+}
+
+.text p {
+  font-size: 1.5em;
 }

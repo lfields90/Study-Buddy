@@ -20,7 +20,7 @@ feature "Delete review" do
 
     click_link "Delete review"
     expect(page).to have_content(
-      "You don't have permission to destroy that review."
+      "You don't have permission to delete that review."
     )
   end
 
@@ -41,7 +41,7 @@ feature "Delete review" do
     visit spot_path(spot)
 
     click_link "Delete review"
-    expect(page).to have_content("Review destroyed")
+    expect(page).to have_content("Review deleted")
   end
 
 end

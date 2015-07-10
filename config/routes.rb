@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "spots#index"
+  root "homes#index"
   devise_for :users
 
   resources :spots do
