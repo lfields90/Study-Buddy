@@ -17,3 +17,4 @@ feature "User reads and votes on reviews" do
     expect(page).to have_content("You upped that review!")
   end
 end
+

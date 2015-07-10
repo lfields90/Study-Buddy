@@ -14,7 +14,7 @@ feature 'user registers', %Q{
 
   scenario 'provide valid registration information' do
     visit new_user_registration_path
-binding.pry
+
     fill_in 'First name', with: 'John'
     fill_in 'Last name', with: 'Donne'
     fill_in 'Username', with: 'jonny'
@@ -24,8 +24,8 @@ binding.pry
     attach_file "Profile Photo",
       "#{Rails.root}/spec/support/images/example_photo.jpg"
     click_button 'Sign up'
-binding.pry
-    expect(User.first.profile_photo.file.filename).to eq("example_photo.jpg")
+
+    expect(User.last.profile_photo.file.filename).to eq("example_photo.jpg")
     expect(page).to have_content('Welcome! You have signed up successfully.')
     expect(page).to have_content('Sign Out')
   end

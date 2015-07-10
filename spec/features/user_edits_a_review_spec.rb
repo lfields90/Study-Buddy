@@ -48,3 +48,4 @@ feature "User edits a review" do
     expect(page).to have_content("Body can't be blank")
   end
 end
+
