@@ -16,6 +16,7 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'fog'
 gem 'dotenv-rails'
+gem 'pg_search'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'

@@ -13,16 +13,10 @@ class Spot < ActiveRecord::Base
   validates :phone, length: { minimum: 10 }
   validates :user, presence: true
 
-  def self.search(search)
-    where("name ILIKE ?
-          OR description ILIKE ?
-          OR address ILIKE ?
-          OR zip_code ILIKE ?
-          OR city ILIKE ?
-          OR state ILIKE ?
-          OR category ILIKE ? ",
-          "%#{search}%", "%#{search}%", "%#{search}%",
-          "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"
-        )
-  end
+  include PgSearch
+  pg_search_scope :search,
+    :against => [:name, :description, :address, :category, :city, :state, :phone, :zip_code, :website_url],
+    :using => {
+      :tsearch => { :prefix => true }
+    }
 end
