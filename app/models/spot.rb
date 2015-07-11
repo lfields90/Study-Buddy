@@ -15,8 +15,9 @@ class Spot < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :search,
-    :against => [:name, :description, :address, :category, :city, :state, :phone, :zip_code, :website_url],
-    :using => {
-      :tsearch => { :prefix => true }
+    against: [:name, :description, :address, :category, :city, :state, :phone,
+      :zip_code, :website_url],
+    using: {
+      tsearch: { prefix: true }
     }
 end
