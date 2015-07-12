@@ -7,6 +7,11 @@
       <span><b>Last Name:</b> <%= @user.last_name %></span><br />
       <span><b>email:</b> <%= @user.email %></span><br />
     </div>
+
+    <% if current_user %>
+    <%= image_tag(current_user.profile_photo)%>
+    <% end %>
+    
     <% if current_user.id == @user.id %>
       <%= link_to "Edit Profile", edit_user_path(@user), class: "button small radius" %>
     <% end %>

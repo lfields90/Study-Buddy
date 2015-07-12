@@ -1,7 +1,3 @@
-<% if current_user %>
-<%= image_tag(current_user.profile_photo)%>
-<% end %>
-
 <h1>Spots</h1>
   <% @spots.each do |spot| %>
     <div class="panel">
