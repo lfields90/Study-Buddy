@@ -1,6 +1,9 @@
 class SpotsController < ApplicationController
   def index
-    if params[:search]
+    if params[:search] == ''
+      flash[:notice] = "Please enter your search."
+    end
+    if params[:search].present?
       @spots = Spot.search(params[:search]).order("created_at DESC")
       @spots = @spots.page(params[:page])
     else
