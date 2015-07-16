@@ -3,7 +3,7 @@
 # StudyBuddy
 ## General Information
 
-StudyBuddy (http://the-study-buddy.herokuapp.com) is a group project Rails app for Launch Academy's 2015 Summer Cohort created by Nora Delaney, Lamonte Fields, Brian Hogue and Andrew Wortham. It is a site used to find good places to study as recommended and reviewed by users. It utilizes Ruby (2.0.0), CSS, HTML and Javascript.
+StudyBuddy (http://the-study-buddy.herokuapp.com) is a group project Rails app for Launch Academy's 2015 Summer Cohort created by Nora Delaney, LaMonte Fields, Brian Hogue and Andrew Wortham. It is a site used to find good places to study as recommended and reviewed by users. It utilizes Ruby (2.0.0), CSS, HTML and Javascript.
 
 ## Getting Started
 
